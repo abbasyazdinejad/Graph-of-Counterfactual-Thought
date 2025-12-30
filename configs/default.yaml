@@ -1,0 +1,8 @@
+#dataset_path: "data/cycb_v50.jsonl"
+#dataset_path: data/cycb_toy.jsonl
+#dataset_path: data/cycb_synth.jsonl
+
+dataset_path: "data/cycb_synth.jsonl"
+
+
+

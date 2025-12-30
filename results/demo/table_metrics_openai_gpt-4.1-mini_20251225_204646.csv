@@ -1,0 +1,1007 @@
+timestamp,model,sample_id,category,label,method,perturbation,decision,reasoning,css,orig_acc,cf_acc
+2025-12-25T20:46:58.997168,gpt-4.1-mini,RANSOM_001,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:46:58.997207,gpt-4.1-mini,RANSOM_001,Ransomware,Ransomware,cot,orig,Ransomware,"The sample exhibits classic ransomware behavior: it enumerates user files, encrypts them making originals unreadable, drops ransom notes, changes the wallpaper to payment instructions, disables system restore points, and terminates backup services. These actions are consistent with ransomware aiming to extort payment by denying access to user data.",,1,
+2025-12-25T20:46:58.997222,gpt-4.1-mini,RANSOM_001,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+1. Ransomware
+   - Creates file enumeration loop across user directories and reads many documents.
+   - Writes encrypted copies with new extensions; originals become unreadable.
+   - Drops ransom note in each directory and changes wallpaper to payment instructions.
+   - Disables shadow copies / restore points using system commands.
+   - Spawns process to terminate backup services and database services.
+
+2. Generic Malware
+   - Creates file enumeration loop across user directories and reads many documents.
+   - Spawns process to terminate backup services and database services.
+
+3. Backdoor
+   - Spawns process to terminate backup services and database services.
+   - Disables shadow copies / restore points using system commands.
+
+Best label:",,1,
+2025-12-25T20:46:58.997286,gpt-4.1-mini,RANSOM_001,Ransomware,Ransomware,cva,orig,Ransomware,"The sample exhibits classic ransomware behavior: it enumerates user files, encrypts them making originals unreadable, drops ransom notes, changes the wallpaper to payment instructions, disables system restore points, and terminates backup services. These actions are typical of ransomware aiming to extort payment by denying access to user data.",1.0,1,
+2025-12-25T20:46:58.997309,gpt-4.1-mini,RANSOM_001,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The sample exhibits classic ransomware behavior: it enumerates user files, encrypts them making originals unreadable, drops ransom notes, changes the wallpaper to payment instructions, disables system restore points, and terminates backup services. These actions are typical of ransomware aiming to extort victims by denying access to their data.",,,0
+2025-12-25T20:46:58.997322,gpt-4.1-mini,RANSOM_001,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample exhibits classic ransomware behavior: it enumerates user files, encrypts them making originals unreadable, drops ransom notes, changes the wallpaper to payment instructions, disables system restore points, and terminates backup services. These actions are typical of ransomware aiming to extort payment by denying access to user data.",,,1
+2025-12-25T20:46:58.997334,gpt-4.1-mini,RANSOM_001,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample exhibits classic ransomware behavior: it enumerates user files, encrypts them making originals unreadable, drops ransom notes, changes the wallpaper to payment instructions, disables system restore points, and terminates backup services. These actions are typical of ransomware aiming to extort victims by denying access to their data.",,,1
+2025-12-25T20:47:08.310726,gpt-4.1-mini,RANSOM_002,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:47:08.310756,gpt-4.1-mini,RANSOM_002,Ransomware,Ransomware,cot,orig,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts files by rewriting them with high-entropy bytes and renames them, which is typical of ransomware encrypting user data. It also creates a mutex to avoid multiple instances, enumerates network shares to potentially spread or find more files to encrypt, attempts to delete backups and disables recovery features to prevent restoration, and leaves a ransom note demanding payment for decryption keys.",,1,
+2025-12-25T20:47:08.310769,gpt-4.1-mini,RANSOM_002,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+1. Ransomware
+   - Mass renames files after rewriting contents with high-entropy bytes, typical of encryption behavior. [E1]
+   - Ransom note indicates timed payment and decryption key escrow, a hallmark of ransomware. [E4]
+
+2. Generic Malware
+   - Creates mutex to avoid multiple runs and enumerates network shares, common in various malware types. [E2]
+   - Attempts to delete backups and disables recovery features, which can be seen in destructive malware. [E3]
+
+3. Backdoor
+   - Enumerates network shares, potentially for lateral movement or persistence. [E2]
+   - Attempts to delete backups and disables recovery features, possibly to maintain access. [E3]
+
+Best label:",,1,
+2025-12-25T20:47:08.310784,gpt-4.1-mini,RANSOM_002,Ransomware,Ransomware,cva,orig,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts files by rewriting them with high-entropy bytes and renames them, which is typical of ransomware encrypting user data. It also creates a mutex to avoid multiple instances, enumerates network shares likely to spread or find more files to encrypt, attempts to delete backups and disables recovery features to prevent restoration, and finally, it leaves a ransom note demanding payment for decryption keys.",1.0,1,
+2025-12-25T20:47:08.310797,gpt-4.1-mini,RANSOM_002,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts files by rewriting them with high-entropy bytes and renames them, which is typical of ransomware encrypting user data. It also creates a mutex to avoid multiple instances, enumerates network shares to potentially spread or find more files to encrypt, attempts to delete backups and disables recovery features to prevent restoration, and displays a ransom note demanding payment with a decryption key escrow. All these behaviors are consistent with ransomware.",,,0
+2025-12-25T20:47:08.310809,gpt-4.1-mini,RANSOM_002,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts files by rewriting them with high-entropy bytes and renames them, which is typical of ransomware encrypting user data. It also creates a mutex to avoid multiple instances, enumerates network shares to potentially spread or find more files to encrypt, attempts to delete backups and disables recovery features to prevent restoration, and leaves a ransom note demanding payment for decryption keys.",,,1
+2025-12-25T20:47:08.310819,gpt-4.1-mini,RANSOM_002,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts files by rewriting them with high-entropy bytes and renames them, which is typical of ransomware encrypting user data. It also creates a mutex to prevent multiple instances, enumerates network shares likely to spread or find more files to encrypt, deletes backups, and disables recovery features to prevent restoration. The presence of a ransom note demanding payment with a timed deadline and key escrow further confirms ransomware activity.",,,1
+2025-12-25T20:47:15.790870,gpt-4.1-mini,INFO_001,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:47:15.790899,gpt-4.1-mini,INFO_001,Infostealer,Infostealer,cot,orig,Infostealer,"The sample reads browser profiles and OS credential stores to extract login data, compresses the stolen information, and sends it to a remote server. These behaviors are characteristic of an infostealer, which focuses on stealing sensitive information and exfiltrating it.",,1,
+2025-12-25T20:47:15.790910,gpt-4.1-mini,INFO_001,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate Labels:
+1. Infostealer
+   - Reads browser profile databases and extracts saved login records. [E1]
+   - Accesses OS credential store / keychain APIs. [E2]
+
+2. Backdoor
+   - Makes outbound POST requests with the archive to a remote endpoint. [E4]
+   - Compresses stolen data into a single archive for staging. [E3]
+
+3. Generic Malware
+   - Compresses stolen data into a single archive for staging. [E3]
+   - Makes outbound POST requests with the archive to a remote endpoint. [E4]",,1,
+2025-12-25T20:47:15.790925,gpt-4.1-mini,INFO_001,Infostealer,Infostealer,cva,orig,Infostealer,"The sample reads browser profiles and OS credential stores to extract login data, compresses the stolen information, and sends it to a remote server. These behaviors are characteristic of an infostealer, which focuses on stealing sensitive information and exfiltrating it.",1.0,1,
+2025-12-25T20:47:15.790938,gpt-4.1-mini,INFO_001,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample reads browser profiles and OS credential stores to extract login data, compresses the stolen information, and sends it to a remote server. These behaviors are characteristic of an infostealer, which focuses on stealing sensitive information and exfiltrating it.",,,1
+2025-12-25T20:47:15.790949,gpt-4.1-mini,INFO_001,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The sample reads browser profiles and OS credential stores to extract login data, compresses the stolen information, and sends it to a remote server. These behaviors are characteristic of an infostealer, which focuses on gathering and exfiltrating sensitive information.",,,1
+2025-12-25T20:47:15.790960,gpt-4.1-mini,INFO_001,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The sample reads browser profiles and OS credential stores to extract login data, compresses the stolen information, and sends it to a remote server. These behaviors are characteristic of an infostealer, which focuses on stealing sensitive information and exfiltrating it.",,,1
+2025-12-25T20:47:23.368030,gpt-4.1-mini,INFO_002,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:47:23.368059,gpt-4.1-mini,INFO_002,Infostealer,Infostealer,cot,orig,Infostealer,"The sample enumerates browsers, reads cookies and session stores, collects autofill data and email addresses, targets crypto wallet extensions to copy key material, and sends the collected data to an exfiltration destination. These behaviors are characteristic of an infostealer, which focuses on gathering sensitive information from the victim.",,1,
+2025-12-25T20:47:23.368070,gpt-4.1-mini,INFO_002,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- Enumerates installed browsers and reads cookie/session stores (E1).
+- Collects autofill data and email addresses from local profiles (E2).
+- Targets crypto wallet extensions and copies key material (E3).
+- Performs periodic beacon to fetch exfil destination and sends staged bundle (E4).
+
+2. Backdoor
+- Performs periodic beacon to fetch exfil destination (E4).
+- Sends staged bundle (E4).
+
+3. Generic Malware
+- Enumerates installed browsers and collects data (E1, E2).
+- Sends data to external destination (E4).
+
+Best label:",,1,
+2025-12-25T20:47:23.368085,gpt-4.1-mini,INFO_002,Infostealer,Infostealer,cva,orig,Infostealer,"The sample enumerates browsers, reads cookies and session stores, collects autofill data and email addresses, targets crypto wallet extensions to copy key material, and sends collected data to an exfiltration destination. These behaviors are characteristic of an infostealer, which focuses on gathering sensitive information for theft.",1.0,1,
+2025-12-25T20:47:23.368099,gpt-4.1-mini,INFO_002,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample enumerates browsers, reads cookies and session stores, collects autofill data and email addresses, targets crypto wallet extensions to copy key material, and sends collected data to an exfiltration destination. These behaviors are characteristic of an infostealer, which focuses on gathering sensitive information for theft.",,,1
+2025-12-25T20:47:23.368110,gpt-4.1-mini,INFO_002,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The sample enumerates browsers, reads cookies and session stores, collects autofill data and email addresses, targets crypto wallet extensions to copy key material, and sends the collected data to an exfiltration destination. These behaviors are characteristic of an infostealer, which focuses on gathering sensitive information from the victim's system.",,,1
+2025-12-25T20:47:23.368120,gpt-4.1-mini,INFO_002,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The sample enumerates browsers, reads cookies and session stores, collects autofill data and email addresses, targets crypto wallet extensions to copy key material, and sends collected data to an exfiltration destination. These behaviors are characteristic of an infostealer, which focuses on gathering sensitive information for theft.",,,1
+2025-12-25T20:47:32.274821,gpt-4.1-mini,BD_001,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:47:32.274849,gpt-4.1-mini,BD_001,Backdoor,Backdoor,cot,orig,Backdoor,"The sample exhibits behavior typical of a backdoor: it maintains communication with a command server, executes remote commands, ensures persistence, and opens a reverse shell on command. These are classic indicators of backdoor functionality.",,1,
+2025-12-25T20:47:32.274861,gpt-4.1-mini,BD_001,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate Labels:
+
+1. Backdoor
+- Maintains periodic beacon to command endpoint and sleeps with jitter, indicating ongoing communication with a command and control server.
+- Opens reverse shell when specific command is received, allowing remote control of the infected system.
+
+2. Generic Malware
+- Downloads tasking and executes shell commands received from remote server, showing generic malicious behavior.
+- Creates persistence via scheduled task to relaunch at startup, a common trait in many malware types.
+
+3. Infostealer
+- Downloads tasking and executes shell commands received from remote server, which could include data exfiltration commands.
+- Creates persistence via scheduled task to relaunch at startup, enabling long-term data theft.",,1,
+2025-12-25T20:47:32.274875,gpt-4.1-mini,BD_001,Backdoor,Backdoor,cva,orig,Backdoor,"The sample maintains a periodic beacon to a command endpoint, downloads and executes remote shell commands, creates persistence, and opens a reverse shell on command. These behaviors are characteristic of a backdoor, which allows remote control and command execution on the infected system.",1.0,1,
+2025-12-25T20:47:32.274889,gpt-4.1-mini,BD_001,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample maintains a periodic beacon to a command endpoint, downloads and executes remote shell commands, creates persistence, and opens a reverse shell on command. These behaviors are characteristic of a backdoor, which allows remote control and command execution on the infected system.",,,1
+2025-12-25T20:47:32.274901,gpt-4.1-mini,BD_001,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample exhibits behavior typical of a backdoor: it maintains communication with a command server, executes remote commands, ensures persistence, and opens a reverse shell on command. These actions align with backdoor functionality rather than ransomware, infostealer, or generic malware.",,,1
+2025-12-25T20:47:32.274911,gpt-4.1-mini,BD_001,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample exhibits behavior typical of a backdoor: it maintains communication with a command server, executes remote commands, ensures persistence, and opens a reverse shell on command. These are classic indicators of backdoor functionality.",,,1
+2025-12-25T20:47:39.238223,gpt-4.1-mini,BD_002,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:47:39.238253,gpt-4.1-mini,BD_002,Backdoor,Backdoor,cot,orig,Backdoor,"The sample registers as a service and maintains a long-lived encrypted channel, which is typical for persistent remote access. It receives remote commands and uploads system inventory, indicating control and data exfiltration capabilities. The keep-alive and retry mechanisms with fallback domains further support continuous remote connectivity. These behaviors align with a backdoor.",,1,
+2025-12-25T20:47:39.238263,gpt-4.1-mini,BD_002,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+1. Backdoor
+   - Registers as a service and maintains a long-lived encrypted channel, typical for persistent remote access.
+   - Receives remote commands and uploads system inventory, indicating control and data exfiltration capabilities.
+
+2. Generic Malware
+   - Implements keep-alive and retries with fallback domains, which can be common in various malware types to maintain connectivity.
+   - Maintains encrypted communication channels, a feature seen in many malware families.
+
+3. Infostealer
+   - Uploads system inventory results, which could be part of information theft.
+   - Receives remote commands, potentially to exfiltrate data.",,1,
+2025-12-25T20:47:39.238277,gpt-4.1-mini,BD_002,Backdoor,Backdoor,cva,orig,Backdoor,"The sample registers as a service and maintains a long-lived encrypted channel, which is typical for persistent remote access. It receives remote commands and uploads system inventory, indicating control and data exfiltration capabilities. The keep-alive and fallback domain retries further support continuous remote connectivity. These behaviors align with a backdoor.",1.0,1,
+2025-12-25T20:47:39.238291,gpt-4.1-mini,BD_002,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample registers as a service and maintains a long-lived encrypted channel, which is typical for persistent remote access. It receives remote commands and uploads system inventory, indicating control and data exfiltration capabilities. The keep-alive and fallback domain retries further support continuous remote connectivity. These behaviors align with a backdoor.",,,1
+2025-12-25T20:47:39.238301,gpt-4.1-mini,BD_002,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample registers as a service and maintains a long-lived encrypted channel, which is typical for persistent remote access. It receives remote commands and uploads system inventory, indicating control and data exfiltration capabilities. The keep-alive and retry mechanisms with fallback domains further support continuous remote connectivity. These behaviors align with a backdoor.",,,1
+2025-12-25T20:47:39.238312,gpt-4.1-mini,BD_002,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample registers as a service and maintains a long-lived encrypted channel, which is typical for persistent remote access. It receives remote commands and uploads system inventory, indicating control and data exfiltration capabilities. The keep-alive and retry mechanisms with fallback domains further support continuous remote connectivity. These behaviors align with a backdoor.",,,1
+2025-12-25T20:47:45.993304,gpt-4.1-mini,BENIGN_001,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:47:45.993322,gpt-4.1-mini,BENIGN_001,Benign Software,Benign,cot,orig,Benign,"The sample exhibits typical benign behavior such as reading configuration files, connecting securely to vendor update servers, downloading and verifying signed update packages, and writing logs without any suspicious activity like process injection. These actions are consistent with normal software update processes and do not indicate malicious intent.",,1,
+2025-12-25T20:47:45.993328,gpt-4.1-mini,BENIGN_001,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+1. Benign
+   - Reads configuration files and user preferences for an installed application.
+   - Connects over HTTPS to well-known vendor update servers and verifies signed update packages.
+2. Generic Malware
+   - No evidence of malicious behavior, but network connections and file writes could be suspicious in other contexts.
+3. Infostealer
+   - Reads user preferences, which could be sensitive, but no evidence of data exfiltration.",,1,
+2025-12-25T20:47:45.993336,gpt-4.1-mini,BENIGN_001,Benign Software,Benign,cva,orig,Benign,"The sample exhibits typical benign behavior such as reading configuration files, connecting securely to vendor update servers, downloading and verifying signed update packages, and writing logs without any suspicious activity like process injection. These actions are consistent with normal software update processes and do not indicate malicious intent.",1.0,1,
+2025-12-25T20:47:45.993342,gpt-4.1-mini,BENIGN_001,Benign Software,Benign,cva,mask_encryption,Benign,"The sample exhibits typical benign behavior such as reading configuration files, connecting securely to vendor update servers, downloading and verifying signed update packages, and writing logs without any suspicious activity. There is no evidence of malicious actions like data theft, unauthorized access, or encryption of files.",,,1
+2025-12-25T20:47:45.993348,gpt-4.1-mini,BENIGN_001,Benign Software,Benign,cva,modify_c2,Benign,"The sample exhibits typical benign software behavior: reading configuration files, connecting securely to vendor update servers, downloading and verifying signed updates, and writing logs without suspicious activity. There is no indication of malicious actions such as data theft, unauthorized access, or encryption of files.",,,1
+2025-12-25T20:47:45.993354,gpt-4.1-mini,BENIGN_001,Benign Software,Benign,cva,remove_persistence,Benign,"The sample exhibits typical benign behavior such as reading configuration files, connecting securely to vendor update servers, downloading and verifying signed update packages, and writing logs without any suspicious activity like process injection. These actions are consistent with normal software update processes and do not indicate malicious intent.",,,1
+2025-12-25T20:47:52.549354,gpt-4.1-mini,BENIGN_002,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:47:52.549383,gpt-4.1-mini,BENIGN_002,Benign Software,Benign,cot,orig,Benign,"The sample performs normal file input/output operations on user-selected documents without mass rewriting, uses OS APIs for user interface events, and sends periodic telemetry data with user consent. There is no indication of malicious behavior such as data theft, unauthorized access, or encryption of files.",,1,
+2025-12-25T20:47:52.549395,gpt-4.1-mini,BENIGN_002,Benign Software,Benign,tot,orig,Benign,"Candidate Labels:
+1. Benign
+   - Performs normal file I/O on user-selected documents without mass rewrite, indicating typical user application behavior.
+   - Uses OS APIs for UI events and stores recent file list, consistent with standard software functionality.
+2. Generic Malware
+   - Periodic telemetry to vendor could be misused for data exfiltration, but here it is opt-in and typical for benign software.
+3. Infostealer
+   - No evidence of unauthorized data collection or transmission beyond opt-in telemetry.",,1,
+2025-12-25T20:47:52.549411,gpt-4.1-mini,BENIGN_002,Benign Software,Benign,cva,orig,Benign,"The sample performs normal file input/output operations on user-selected documents without mass rewriting, uses OS APIs for user interface events, and sends periodic telemetry data with user consent. There is no indication of malicious behavior such as data theft, unauthorized access, or encryption of files.",1.0,1,
+2025-12-25T20:47:52.549425,gpt-4.1-mini,BENIGN_002,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The sample performs normal file input/output on user-selected documents without mass rewriting, uses OS APIs for UI events, and sends periodic telemetry with user consent. There is no indication of malicious behavior such as data theft, unauthorized access, or encryption of files.",,,1
+2025-12-25T20:47:52.549436,gpt-4.1-mini,BENIGN_002,Benign Software,Benign,cva,modify_c2,Benign,"The sample performs normal file input/output operations on user-selected documents without mass rewriting, uses OS APIs for user interface events, and sends periodic telemetry data with user consent. There is no indication of malicious behavior such as data theft, unauthorized access, or encryption of files.",,,1
+2025-12-25T20:47:52.549446,gpt-4.1-mini,BENIGN_002,Benign Software,Benign,cva,remove_persistence,Benign,"The sample performs normal file input/output on user-selected documents without mass rewriting, uses OS APIs for user interface events, and sends periodic telemetry with user consent. These behaviors are typical of legitimate software and show no signs of malicious activity such as data theft, unauthorized access, or file encryption.",,,1
+2025-12-25T20:48:00.539367,gpt-4.1-mini,MAL_001,Generic Malware,Generic Malware,direct,orig,Generic Malware,,,1,
+2025-12-25T20:48:00.539396,gpt-4.1-mini,MAL_001,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample downloads and executes a second-stage payload in memory, attempts privilege escalation, and injects into a system process. These behaviors indicate malicious activity but do not specifically point to ransomware, infostealing, or backdoor functionality. The evidence aligns with general malicious tactics without a clear specialized purpose.",,1,
+2025-12-25T20:48:00.539409,gpt-4.1-mini,MAL_001,Generic Malware,Generic Malware,tot,orig,Generic Malware,"Candidate labels:
+1. Generic Malware
+   - Downloads and executes a second-stage payload in memory, indicating multi-stage infection typical of generic malware.
+   - Attempts privilege escalation and process injection, common tactics used by various malware types to maintain persistence and evade detection.
+
+2. Backdoor
+   - Process injection into a common system process could be used to maintain stealthy remote access.
+   - Privilege escalation attempts may facilitate backdoor functionality by gaining higher system privileges.
+
+3. Infostealer
+   - No direct evidence of data exfiltration or credential theft.
+   - Process enumeration could be preparatory for information gathering, but no explicit data theft observed.
+
+Best label:",,1,
+2025-12-25T20:48:00.539423,gpt-4.1-mini,MAL_001,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample downloads and executes a second-stage payload in memory, attempts privilege escalation, and injects into a system process. These behaviors indicate malicious activity but do not specifically point to ransomware, infostealing, or backdoor functionalities. The evidence aligns with general malicious tactics without a clear specialized purpose.",1.0,1,
+2025-12-25T20:48:00.539435,gpt-4.1-mini,MAL_001,Generic Malware,Generic Malware,cva,remove_persistence,Generic Malware,"The sample downloads and executes a second-stage payload in memory, attempts privilege escalation, and injects into a system process. These behaviors indicate a multi-stage attack with stealth and persistence techniques but do not specifically point to data theft, ransomware encryption, or backdoor communication. The evidence aligns with generic malicious activity.",,,1
+2025-12-25T20:48:00.539447,gpt-4.1-mini,MAL_001,Generic Malware,Generic Malware,cva,modify_c2,Generic Malware,"The sample downloads and executes a second-stage payload in memory, attempts privilege escalation, and injects into a system process. These behaviors indicate malicious activity but do not specifically point to ransomware, infostealing, or backdoor functionalities. The evidence aligns with general malicious tactics without a clear specialized purpose.",,,1
+2025-12-25T20:48:00.539458,gpt-4.1-mini,MAL_001,Generic Malware,Generic Malware,cva,suppress_exfiltration,Generic Malware,"The sample downloads and executes a second-stage payload in memory, attempts privilege escalation, and injects into a system process. These behaviors indicate malicious activity but do not specifically point to ransomware, infostealer, or backdoor functionalities. The evidence aligns with general malicious tactics typical of generic malware.",,,1
+2025-12-25T20:48:08.625951,gpt-4.1-mini,MAL_002,Generic Malware,Generic Malware,direct,orig,Generic Malware,,,1,
+2025-12-25T20:48:08.625980,gpt-4.1-mini,MAL_002,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample creates autorun registry entries and hides its executable, indicating persistence mechanisms. It connects to an unknown domain to fetch encrypted data, suggesting potential command and control communication or payload retrieval. It also performs environment checks and anti-analysis delays, typical of malware trying to evade detection. However, there is no specific evidence of data theft, encryption of files for ransom, or backdoor functionality explicitly stated.",,1,
+2025-12-25T20:48:08.625993,gpt-4.1-mini,MAL_002,Generic Malware,Generic Malware,tot,orig,Generic Malware,"Candidate Labels:
+1. Generic Malware
+   - Creates autorun registry entry and hides executable in user profile, indicating persistence mechanisms.
+   - Connects to unknown domain and fetches encrypted blob, suggesting potential payload delivery or command and control.
+
+2. Backdoor
+   - Connects to unknown domain and fetches encrypted blob, which could be commands or additional payloads.
+   - Performs environment checks and anti-analysis delays, typical of stealthy remote access tools.
+
+3. Infostealer
+   - Creates autorun registry entry and hides executable in user profile to maintain presence.
+   - Connects to unknown domain and fetches encrypted blob, possibly exfiltrating data or downloading stealing modules.
+
+Best Label:",,1,
+2025-12-25T20:48:08.626007,gpt-4.1-mini,MAL_002,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample creates autorun registry entries and hides its executable, indicating persistence mechanisms typical of malware. It connects to an unknown domain and fetches an encrypted blob, suggesting potential command and control communication or payload retrieval. It also performs environment checks and anti-analysis delays, which are common evasion techniques. However, there is no specific evidence of data theft, encryption of files for ransom, or backdoor functionality explicitly stated.",1.0,1,
+2025-12-25T20:48:08.626021,gpt-4.1-mini,MAL_002,Generic Malware,Generic Malware,cva,remove_persistence,Generic Malware,"The sample creates autorun registry entries and hides its executable, indicating persistence mechanisms typical of malware. It connects to an unknown domain and fetches encrypted data, suggesting command and control communication or payload retrieval. It also performs environment checks and anti-analysis delays, which are common evasion techniques. However, there is no specific evidence of data theft, encryption of user files, or remote control capabilities explicitly mentioned.",,,1
+2025-12-25T20:48:08.626031,gpt-4.1-mini,MAL_002,Generic Malware,Generic Malware,cva,modify_c2,Generic Malware,"The sample creates autorun registry entries and hides its executable, indicating persistence mechanisms typical of malware. It connects to an unknown domain and fetches encrypted data, suggesting potential command and control communication or payload retrieval. It also performs environment checks and anti-analysis delays, which are common evasion techniques. However, there is no specific evidence of data theft, encryption of files, or remote control capabilities explicitly described.",,,1
+2025-12-25T20:48:08.626042,gpt-4.1-mini,MAL_002,Generic Malware,Generic Malware,cva,mask_encryption,Generic Malware,"The sample creates autorun registry entries and hides its executable, indicating persistence mechanisms typical of malware. It connects to an unknown domain and fetches encrypted data, suggesting potential command and control communication or payload retrieval. It also performs environment checks and anti-analysis delays, which are common evasion techniques. However, there is no specific evidence of data theft, encryption of files, or backdoor functionality explicitly stated.",,,1
+2025-12-25T20:48:16.820126,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:48:16.820154,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,cot,orig,Ransomware,"The sample encrypts user files using AES-256, scans for specific file types to encrypt, and communicates with a command and control server to receive encryption keys. These behaviors are characteristic of ransomware, which typically encrypts files and demands payment for decryption.",,1,
+2025-12-25T20:48:16.820165,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+1. Ransomware
+   - [E1] The malware encrypts user files with a strong AES-256 algorithm
+   - [E5] The ransomware scans the filesystem for specific file types to encrypt
+2. Backdoor
+   - [E3] The malware communicates with a command and control server to receive encryption keys (indicates C2 communication)
+   - [E4] It exploits a vulnerability to gain administrative privileges (common in backdoors)
+3. Generic Malware
+   - [E2] It creates a registry key to ensure it runs on startup (common persistence technique)
+   - [E4] It exploits a vulnerability to gain administrative privileges (general malicious behavior)",,1,
+2025-12-25T20:48:16.820181,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,cva,orig,Ransomware,"The sample encrypts user files using AES-256, scans the filesystem for target files, and communicates with a command and control server to receive encryption keys. It also ensures persistence by creating a registry key and escalates privileges to perform its actions. These behaviors are characteristic of ransomware.",1.0,1,
+2025-12-25T20:48:16.820195,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts user files using AES-256, communicates with a command and control server to obtain encryption keys, exploits vulnerabilities to gain administrative privileges, and scans the filesystem for target file types. These behaviors are characteristic of ransomware.",,,1
+2025-12-25T20:48:16.820207,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The sample exhibits clear ransomware behavior: it encrypts files (E1, E5), ensures persistence via registry keys (E2), communicates with a C2 server to receive encryption keys (E3), and escalates privileges to perform its actions (E4). These are hallmark traits of ransomware.",,,0
+2025-12-25T20:48:16.820218,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample encrypts user files using AES-256, a hallmark behavior of ransomware. It also scans the filesystem for specific file types to encrypt, which aligns with typical ransomware activity. Persistence via registry key and privilege escalation support its malicious intent to maintain control and execute the encryption payload. The altered C2 endpoint disguises its communication, further indicating malicious ransomware behavior.",,,1
+2025-12-25T20:48:16.820232,gpt-4.1-mini,RANSOM_003,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample encrypts user files using AES-256, scans the filesystem for target files, and communicates with a command and control server to receive encryption keys. It also ensures persistence by creating a registry key and escalates privileges to perform its actions. These behaviors are characteristic of ransomware.",,,1
+2025-12-25T20:48:24.178396,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:48:24.178425,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,cot,orig,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts user files using AES-256, ensures persistence via registry keys, communicates with a C2 server for encryption keys, attempts privilege escalation, and scans the filesystem to find documents to encrypt.",,1,
+2025-12-25T20:48:24.178436,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+
+1. Ransomware
+   - The malware encrypts user files with a strong AES-256 algorithm [E1].
+   - It scans the filesystem to locate and encrypt documents [E5].
+
+2. Backdoor
+   - It communicates with a command and control server to receive encryption keys [E3].
+   - It attempts to escalate privileges to gain full access to the system [E4].
+
+3. Generic Malware
+   - It creates a registry key to ensure it runs on startup [E2].
+   - It attempts to escalate privileges to gain full access to the system [E4].",,1,
+2025-12-25T20:48:24.178451,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,cva,orig,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts user files using AES-256, ensures persistence via registry keys, communicates with a C2 server for encryption keys, attempts privilege escalation, and scans the filesystem to find documents to encrypt.",1.0,1,
+2025-12-25T20:48:24.178464,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts user files using AES-256, communicates with a command and control server to obtain encryption keys, attempts privilege escalation, and scans the filesystem to locate documents for encryption. These behaviors are characteristic of ransomware.",,,1
+2025-12-25T20:48:24.178474,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts files (E1, E5), ensures persistence via registry keys (E2), communicates with a C2 server to obtain encryption keys (E3), and attempts privilege escalation (E4) to maximize impact.",,,0
+2025-12-25T20:48:24.178485,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample encrypts user files using AES-256 and scans the filesystem to locate documents for encryption, which are hallmark behaviors of ransomware. It also ensures persistence and attempts privilege escalation, supporting its malicious intent to lock users out of their data.",,,1
+2025-12-25T20:48:24.178495,gpt-4.1-mini,RANSOM_004,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts user files using AES-256, ensures persistence via registry keys, communicates with a C2 server for encryption keys, attempts privilege escalation, and scans the filesystem to find documents to encrypt.",,,1
+2025-12-25T20:48:32.587394,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:48:32.587413,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,cot,orig,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark of ransomware behavior. It also ensures persistence by modifying the registry, communicates with a C2 server to receive encryption keys, and scans the filesystem to locate documents for encryption. These behaviors collectively confirm ransomware activity.",,1,
+2025-12-25T20:48:32.587419,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+
+1. Ransomware
+   - The malware encrypts user files with a strong AES-256 algorithm [E1].
+   - It communicates with a command and control server to receive encryption keys [E3].
+
+2. Backdoor
+   - The malware communicates with a command and control server [E3].
+   - It exploits a vulnerability to gain admin privileges [E4].
+
+3. Generic Malware
+   - It installs a registry key to ensure it runs on startup [E2].
+   - The malware scans the filesystem to locate documents [E5].",,1,
+2025-12-25T20:48:32.587427,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,cva,orig,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark of ransomware behavior. It also ensures persistence by modifying the registry, communicates with a C2 server to receive encryption keys, and scans the filesystem to locate documents for encryption. These behaviors collectively confirm it is ransomware.",1.0,1,
+2025-12-25T20:48:32.587433,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts user files using AES-256, communicates with a command and control server to obtain encryption keys, exploits vulnerabilities to gain admin privileges, and scans the filesystem to locate documents for encryption. These behaviors are characteristic of ransomware.",,,1
+2025-12-25T20:48:32.587439,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The evidence shows the malware encrypts files ([E1], [E5]), ensures persistence via registry keys ([E2]), communicates with a C2 server to receive encryption keys ([E3]), and escalates privileges ([E4]). These behaviors are characteristic of ransomware.",,,0
+2025-12-25T20:48:32.587444,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample encrypts user files using AES-256 and scans the filesystem to locate documents for encryption, which are hallmark behaviors of ransomware. It also ensures persistence and gains elevated privileges, supporting its capability to carry out encryption effectively. The presence of C2 communication disguised as benign telemetry is consistent with ransomware maintaining control.",,,1
+2025-12-25T20:48:32.587453,gpt-4.1-mini,RANSOM_005,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample encrypts user files using AES-256, a hallmark of ransomware behavior. It ensures persistence by modifying the registry and communicates with a command and control server to obtain encryption keys, which is typical for ransomware operations. Additionally, it escalates privileges and scans the filesystem to target documents for encryption, further confirming its ransomware nature.",,,1
+2025-12-25T20:48:40.473750,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:48:40.473779,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,cot,orig,Ransomware,"The sample exhibits classic ransomware behavior: it encrypts files using AES-256 (E1), ensures persistence via registry keys (E2), communicates with a C2 server (E3), escalates privileges (E4), and deletes shadow copies to prevent recovery (E5). These actions are typical of ransomware aiming to lock user data and demand payment.",,1,
+2025-12-25T20:48:40.473791,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+
+1. Ransomware
+- [E1] The malware encrypts files on the victim's system using AES-256
+- [E5] The ransomware deletes shadow copies to prevent file recovery
+
+2. Backdoor
+- [E3] The malware communicates with a command and control server to receive instructions
+- [E4] It attempts to escalate privileges by exploiting a known vulnerability
+
+3. Generic Malware
+- [E2] It creates a registry key to ensure it runs on startup
+- [E3] The malware communicates with a command and control server to receive instructions",,1,
+2025-12-25T20:48:40.473804,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,cva,orig,Ransomware,"The sample encrypts files using AES-256, a hallmark behavior of ransomware. It also deletes shadow copies to prevent file recovery, which is typical ransomware behavior to ensure victims cannot restore their files easily. The persistence mechanism and privilege escalation support its malicious intent, but the key indicator is the file encryption and deletion of recovery points.",1.0,1,
+2025-12-25T20:48:40.473817,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts files using AES-256, a hallmark of ransomware behavior. It also deletes shadow copies to prevent file recovery, which is typical ransomware behavior to enforce ransom payment. Communication with a command and control server and privilege escalation support its malicious intent but do not change the primary classification.",,,1
+2025-12-25T20:48:40.473829,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The sample exhibits classic ransomware behavior: it performs encryption (though details are masked), ensures persistence via registry keys, communicates with a C2 server for instructions, escalates privileges to enhance its capabilities, and deletes shadow copies to prevent recovery. These actions align strongly with ransomware characteristics.",,,0
+2025-12-25T20:48:40.473839,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample encrypts files using AES-256, a hallmark behavior of ransomware. It also deletes shadow copies to prevent file recovery, which is typical ransomware behavior to ensure victims cannot restore their files easily. Persistence and privilege escalation support its malicious intent but do not change the classification.",,,1
+2025-12-25T20:48:40.473849,gpt-4.1-mini,RANSOM_006,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample encrypts files using AES-256, a hallmark behavior of ransomware. It also deletes shadow copies to prevent recovery, which is typical ransomware behavior. Persistence and privilege escalation support its malicious intent, and C2 communication is common for receiving encryption keys or commands.",,,1
+2025-12-25T20:48:48.461617,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:48:48.461645,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,cot,orig,Ransomware,"The sample encrypts user files using AES-256, communicates with a remote server to receive encryption keys, and scans the filesystem for documents and images to encrypt. These behaviors are characteristic of ransomware, which typically encrypts files and demands payment for decryption.",,1,
+2025-12-25T20:48:48.461656,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+
+1. Ransomware
+   - [E1] The malware encrypts user files with a strong AES-256 algorithm.
+   - [E5] It scans the filesystem for documents and images to encrypt.
+
+2. Backdoor
+   - [E3] The malware communicates with a remote server to receive encryption keys, indicating command and control capabilities.
+   - [E4] It attempts to escalate privileges using a known exploit, which is common in backdoors to maintain access.
+
+3. Generic Malware
+   - [E2] It creates a registry key to ensure it runs on startup, a common persistence technique in many malware types.
+   - [E4] Attempts privilege escalation, which is a generic malware behavior.
+
+Best label:",,1,
+2025-12-25T20:48:48.461671,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,cva,orig,Ransomware,"The sample encrypts user files using AES-256, communicates with a remote server to receive encryption keys, and scans the filesystem for documents and images to encrypt. These behaviors are characteristic of ransomware, which typically encrypts files and demands payment for decryption.",1.0,1,
+2025-12-25T20:48:48.461684,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts user files using AES-256, communicates with a remote server to obtain encryption keys, escalates privileges, and scans the filesystem for files to encrypt. These behaviors are characteristic of ransomware.",,,1
+2025-12-25T20:48:48.461696,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The evidence shows the malware performs encryption (E1), ensures persistence via registry keys (E2), communicates with a command and control server to receive encryption keys (E3), escalates privileges (E4), and scans the filesystem for documents and images to encrypt (E5). These behaviors are characteristic of ransomware, which encrypts user files and demands payment for decryption.",,,0
+2025-12-25T20:48:48.461707,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample encrypts user files using AES-256, scans the filesystem for documents and images to encrypt, and ensures persistence by creating a registry key. These behaviors are characteristic of ransomware, which typically encrypts files and demands payment for decryption.",,,1
+2025-12-25T20:48:48.461719,gpt-4.1-mini,RANSOM_007,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample encrypts user files using AES-256, scans the filesystem for documents and images to encrypt, and communicates with a remote server to receive encryption keys. These behaviors are characteristic of ransomware, which typically encrypts files and demands payment for decryption.",,,1
+2025-12-25T20:48:56.656914,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:48:56.656942,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,cot,orig,Ransomware,"The sample encrypts user files and demands a ransom for the decryption key, which is the defining characteristic of ransomware. Additional behaviors such as persistence, communication with a command and control server, privilege escalation, and filesystem scanning support its operation as ransomware.",,1,
+2025-12-25T20:48:56.656953,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+
+1. Ransomware
+   - The malware encrypts user files and demands a ransom for the decryption key [E1].
+   - It scans the filesystem to identify files for encryption [E5].
+
+2. Backdoor
+   - The malware communicates with a command and control server to receive instructions [E3].
+   - It attempts to escalate privileges to gain full control of the system [E4].
+
+3. Generic Malware
+   - It installs a registry key to ensure it runs on system startup [E2].
+   - It attempts to escalate privileges to gain full control of the system [E4].",,1,
+2025-12-25T20:48:56.656967,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,cva,orig,Ransomware,"The sample encrypts user files and demands a ransom for the decryption key, which is the defining characteristic of ransomware. Additional behaviors such as persistence, communication with a command and control server, privilege escalation, and filesystem scanning support its operation as ransomware.",1.0,1,
+2025-12-25T20:48:56.656981,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts user files and demands a ransom, which is the defining characteristic of ransomware. Additional behaviors such as communicating with a command and control server, privilege escalation, and scanning the filesystem support its operation as ransomware.",,,1
+2025-12-25T20:48:56.656991,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The sample exhibits clear ransomware behavior: it scans the filesystem to identify files for encryption, uses encryption techniques, maintains persistence via registry keys, communicates with a command and control server for instructions, and attempts privilege escalation to maximize its impact.",,,0
+2025-12-25T20:48:56.657002,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The evidence clearly indicates ransomware behavior: the malware encrypts user files and demands a ransom (E1), scans the filesystem to find files to encrypt (E5), and ensures persistence (E2). Privilege escalation (E4) and C2 communication (E3) support its malicious operation but do not change the primary classification.",,,1
+2025-12-25T20:48:56.657012,gpt-4.1-mini,RANSOM_008,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample exhibits key characteristics of ransomware, including encrypting user files and demanding a ransom (E1), persistence mechanisms (E2), communication with a command and control server (E3), privilege escalation attempts (E4), and scanning the filesystem to identify files for encryption (E5). These behaviors are typical of ransomware.",,,1
+2025-12-25T20:49:05.154257,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:49:05.154285,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,cot,orig,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark behavior of ransomware. It also communicates with a command and control server to receive encryption keys, indicating active management of the encryption process. The malware ensures persistence by creating a registry key and attempts privilege escalation to enhance its capabilities. Additionally, it scans the filesystem to locate documents for encryption. All these behaviors are consistent with ransomware.",,1,
+2025-12-25T20:49:05.154296,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+
+1. Ransomware
+   - [E1] The malware encrypts user files with a strong AES-256 algorithm.
+   - [E5] The malware scans the filesystem to locate and encrypt documents.
+
+2. Backdoor
+   - [E3] The ransomware communicates with a command and control server to receive encryption keys.
+   - [E4] It attempts to escalate privileges using a known vulnerability.
+
+3. Generic Malware
+   - [E2] It creates a registry key to ensure it runs on startup.
+   - [E4] It attempts to escalate privileges using a known vulnerability.",,1,
+2025-12-25T20:49:05.154311,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,cva,orig,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark behavior of ransomware. It also communicates with a command and control server to receive encryption keys, indicating active management of the encryption process. The malware ensures persistence by creating a registry key and attempts privilege escalation to enhance its capabilities. Additionally, it scans the filesystem to locate documents for encryption. All these behaviors are consistent with ransomware.",1.0,1,
+2025-12-25T20:49:05.154324,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts user files using AES-256, communicates with a command and control server to receive encryption keys, attempts privilege escalation, and scans the filesystem to locate documents for encryption. These behaviors are characteristic of ransomware.",,,1
+2025-12-25T20:49:05.154335,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The evidence shows the sample performs encryption (E1), ensures persistence via registry keys (E2), communicates with a C2 server to receive encryption keys (E3), attempts privilege escalation (E4), and scans the filesystem to locate and encrypt documents (E5). These behaviors are characteristic of ransomware.",,,0
+2025-12-25T20:49:05.154345,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample encrypts user files using AES-256 and scans the filesystem to locate documents for encryption, which are hallmark behaviors of ransomware. It also ensures persistence and attempts privilege escalation, supporting its malicious intent to lock user data.",,,1
+2025-12-25T20:49:05.154354,gpt-4.1-mini,RANSOM_009,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample encrypts user files using AES-256, scans the filesystem to locate documents for encryption, and communicates with a command and control server to receive encryption keys. These behaviors are characteristic of ransomware, which typically encrypts files and demands payment for decryption.",,,1
+2025-12-25T20:49:14.572510,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,direct,orig,Ransomware,,,1,
+2025-12-25T20:49:14.572539,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,cot,orig,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark behavior of ransomware. It also ensures persistence by creating a registry key and communicates with a command and control server, likely to receive encryption keys or instructions. The scanning of the filesystem for specific file types further supports the ransomware behavior.",,1,
+2025-12-25T20:49:14.572550,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,tot,orig,Ransomware,"Candidate labels:
+
+1. Ransomware
+   - [E1] The malware encrypts user files with a strong AES-256 algorithm.
+   - [E5] It scans the filesystem for specific file types to encrypt.
+
+2. Backdoor
+   - [E3] The malware communicates with a command and control server to receive instructions.
+   - [E4] It attempts to escalate privileges to gain full system access.
+
+3. Generic Malware
+   - [E2] It creates a registry key to ensure it runs on startup.
+   - [E3] The malware communicates with a command and control server.",,1,
+2025-12-25T20:49:14.572566,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,cva,orig,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark behavior of ransomware. It also ensures persistence and communicates with a C2 server, typical for ransomware to manage encryption keys or instructions. The scanning of the filesystem for specific file types further supports the ransomware classification.",1.0,1,
+2025-12-25T20:49:14.572579,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,cva,remove_persistence,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark behavior of ransomware. It also scans the filesystem for specific file types to encrypt, further supporting this classification. Communication with a command and control server and privilege escalation are common in ransomware to manage encryption keys and maximize impact.",,,1
+2025-12-25T20:49:14.572590,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,cva,mask_encryption,Ransomware,"The sample exhibits encryption behavior (E1) and scans the filesystem for specific file types to encrypt (E5), which are hallmark traits of ransomware. It also ensures persistence (E2), communicates with a C2 server (E3), and attempts privilege escalation (E4), all common in ransomware operations to maintain control and maximize impact.",,,0
+2025-12-25T20:49:14.572601,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,cva,modify_c2,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark behavior of ransomware. It also scans the filesystem for specific file types to encrypt, further supporting this classification. Persistence and privilege escalation are common tactics used by ransomware to maintain access and maximize impact. The altered C2 indicators do not contradict the ransomware behavior.",,,1
+2025-12-25T20:49:14.572611,gpt-4.1-mini,RANSOM_010,Ransomware,Ransomware,cva,suppress_exfiltration,Ransomware,"The sample encrypts user files using AES-256, which is a hallmark behavior of ransomware. It also scans the filesystem for specific file types to encrypt, reinforcing its ransomware nature. Persistence and communication with a C2 server support its operational capabilities but do not change the primary classification.",,,1
+2025-12-25T20:49:23.278829,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:49:23.278856,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,cot,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), searches for documents with passwords (E5), and exfiltrates stolen data to a remote server (E2). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,1,
+2025-12-25T20:49:23.278868,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- Captures keystrokes to steal user credentials [E1]
+- Exfiltrates stolen data to a remote attacker-controlled server [E2]
+
+2. Backdoor
+- Communicates with a command and control server for further instructions [E4]
+- Installs itself in the startup folder to maintain persistence [E3]
+
+3. Generic Malware
+- Searches filesystem for sensitive documents [E5]
+- Maintains persistence and communicates with C2 server [E3, E4]
+
+Best label: Infostealer",,1,
+2025-12-25T20:49:23.278882,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, searches for password-containing documents, and exfiltrates stolen data to a remote server. It also maintains persistence and communicates with a C2 server. These behaviors are characteristic of an infostealer.",1.0,1,
+2025-12-25T20:49:23.278895,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The sample captures keystrokes to steal credentials, searches the filesystem for password documents, and exfiltrates stolen data to a remote server. It also communicates with a command and control server. These behaviors are characteristic of an infostealer.",,,1
+2025-12-25T20:49:23.278907,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), searches for documents with passwords (E5), and exfiltrates stolen data to a remote server (E2). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:49:23.278918,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), searches for documents with passwords (E5), and exfiltrates stolen data to a remote server (E2). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:49:23.278929,gpt-4.1-mini,INFO_003,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal credentials, searches for documents containing passwords, and communicates with a command and control server, all indicative of credential theft. Persistence mechanisms support ongoing data theft. These behaviors align with an Infostealer.",,,0
+2025-12-25T20:49:31.571091,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:49:31.571118,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,cot,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,1,
+2025-12-25T20:49:31.571129,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- Captures keystrokes to steal user credentials (E1)
+- Exfiltrates stolen data to a remote attacker-controlled server (E2)
+
+2. Backdoor
+- Communicates with a command and control server for further instructions (E4)
+- Installs itself persistently to run on boot (E3)
+
+3. Generic Malware
+- Scans the file system for sensitive documents (E5)
+- Installs itself persistently and communicates with C2 (E3, E4)
+
+Best label: Infostealer",,1,
+2025-12-25T20:49:31.571142,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",1.0,1,
+2025-12-25T20:49:31.571155,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The sample captures keystrokes to steal credentials, scans the file system for sensitive documents, and exfiltrates stolen data to a remote server. It also communicates with a command and control server. These behaviors are characteristic of an infostealer.",,,1
+2025-12-25T20:49:31.571166,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:49:31.571176,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:49:31.571187,gpt-4.1-mini,INFO_004,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal user credentials and scans the file system for sensitive documents, which are typical behaviors of an infostealer. It also maintains persistence and communicates with a C2 server, supporting its role in data theft rather than direct system damage or control.",,,0
+2025-12-25T20:49:39.381896,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:49:39.381923,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,cot,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and maintains persistence (E3). Communication with a command and control server (E4) and temporary storage of captured data (E5) support its role in credential theft and data exfiltration. These behaviors are characteristic of an infostealer.",,1,
+2025-12-25T20:49:39.381933,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- [E1] The malware captures keystrokes to steal user credentials
+- [E2] Stolen data is sent to a remote server controlled by the attacker
+
+2. Backdoor
+- [E4] It communicates with a command and control server to receive instructions
+- [E3] The malware installs itself in the startup folder to ensure it runs on reboot
+
+3. Generic Malware
+- [E5] Temporary files are created to store captured data before exfiltration
+- [E3] The malware installs itself in the startup folder to ensure it runs on reboot",,1,
+2025-12-25T20:49:39.381949,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and maintains persistence (E3). Communication with a command and control server (E4) and temporary storage of captured data (E5) support its role in credential theft and data exfiltration. These behaviors align with an infostealer.",1.0,1,
+2025-12-25T20:49:39.381961,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,cva,remove_persistence,Infostealer,The sample captures keystrokes to steal user credentials and exfiltrates the stolen data to a remote server. It also communicates with a command and control server and uses temporary files to store captured data. These behaviors are characteristic of an infostealer malware.,,,1
+2025-12-25T20:49:39.381973,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and maintains persistence (E3). Communication with a command and control server (E4) and use of temporary files for data storage (E5) support its role in credential theft and data exfiltration. These behaviors align with an infostealer.",,,1
+2025-12-25T20:49:39.381984,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and uses persistence mechanisms (E3). These behaviors are characteristic of an infostealer, as the primary goal is to gather and transmit sensitive information.",,,1
+2025-12-25T20:49:39.381994,gpt-4.1-mini,INFO_005,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal user credentials, indicating credential theft. It also ensures persistence and communicates with a command and control server, which supports ongoing data theft operations. Temporary files are used to store captured data before exfiltration, consistent with infostealer behavior.",,,0
+2025-12-25T20:49:48.364943,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:49:48.364963,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,cot,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, exfiltrates stolen data to a remote server, and scans the filesystem for sensitive documents. These behaviors are characteristic of an infostealer, as it focuses on gathering and transmitting sensitive information. Persistence and C2 communication support ongoing data theft operations.",,1,
+2025-12-25T20:49:48.364970,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- Captures keystrokes to steal user credentials (E1)
+- Exfiltrates stolen data to a remote attacker-controlled server (E2)
+
+2. Backdoor
+- Communicates with a command and control server to receive instructions (E4)
+- Maintains persistence by installing itself in the startup folder (E3)
+
+3. Generic Malware
+- Scans filesystem for sensitive documents (E5)
+- Maintains persistence and communicates with C2 server (E3, E4)
+
+Best label: Infostealer",,1,
+2025-12-25T20:49:48.364978,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, exfiltrates stolen data to a remote server, and scans the filesystem for sensitive documents. These behaviors are characteristic of an infostealer. Persistence and C2 communication support ongoing data theft operations.",1.0,1,
+2025-12-25T20:49:48.364986,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The sample captures keystrokes to steal credentials, scans the filesystem for sensitive documents, and exfiltrates stolen data to a remote server. It also communicates with a command and control server for instructions. These behaviors are characteristic of an infostealer.",,,1
+2025-12-25T20:49:48.364991,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, exfiltrates stolen data to a remote server, and scans the filesystem for sensitive documents. These behaviors are characteristic of an infostealer. Persistence and C2 communication support ongoing data theft operations.",,,1
+2025-12-25T20:49:48.364997,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 evasion (E4) support its continued operation but do not change the primary classification.",,,1
+2025-12-25T20:49:48.365002,gpt-4.1-mini,INFO_006,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal credentials, scans for sensitive documents, and communicates with a C2 server, all typical behaviors of an infostealer. Persistence mechanisms support ongoing data theft rather than ransomware or backdoor activities.",,,0
+2025-12-25T20:49:58.503936,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:49:58.503956,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,cot,orig,Infostealer,"The sample captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,1,
+2025-12-25T20:49:58.503961,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+   - Captures keystrokes to steal user credentials (E1)
+   - Exfiltrates stolen data to a remote attacker-controlled server (E2)
+
+2. Backdoor
+   - Communicates with a command and control server for instructions (E4)
+   - Modifies registry keys to ensure persistence (E3)
+
+3. Generic Malware
+   - Scans the file system for sensitive documents (E5)
+   - Modifies registry keys for persistence (E3)
+
+Best label: Infostealer",,1,
+2025-12-25T20:49:58.503968,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",1.0,1,
+2025-12-25T20:49:58.504029,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The sample captures keystrokes to steal credentials, scans the file system for sensitive documents, and exfiltrates stolen data to a remote server. These behaviors are characteristic of an infostealer, which focuses on gathering and transmitting sensitive information.",,,1
+2025-12-25T20:49:58.504037,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The sample captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:49:58.504042,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The sample captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and searches for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:49:58.504051,gpt-4.1-mini,INFO_007,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal credentials, scans for sensitive documents, and communicates with a command and control server, all indicative of data theft activities. Persistence via registry modification supports ongoing data exfiltration. These behaviors align with an infostealer.",,,0
+2025-12-25T20:50:07.311775,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:50:07.311805,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,cot,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates collected data to a remote server (E2), and maintains persistence (E3). Communication with a command and control server (E4) supports ongoing data theft operations. Temporary files for storing captured data (E5) further indicate its focus on information theft.",,1,
+2025-12-25T20:50:07.311817,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- Captures keystrokes to steal user credentials [E1]
+- Sends collected data to a remote server every hour [E2]
+
+2. Backdoor
+- Communicates with a command and control server for instructions [E4]
+- Creates a registry key to ensure persistence on startup [E3]
+
+3. Generic Malware
+- Creates temporary files to store captured data before exfiltration [E5]
+- Exhibits multiple behaviors including persistence, data exfiltration, and C2 communication",,1,
+2025-12-25T20:50:07.311833,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates collected data to a remote server (E2), and maintains persistence (E3). Communication with a command and control server (E4) supports ongoing data theft operations. Temporary files for storing captured data (E5) further indicate data collection and theft. These behaviors align with an infostealer.",1.0,1,
+2025-12-25T20:50:07.311847,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), stores the data temporarily (E5), and exfiltrates it to a remote server (E2). Communication with a command and control server (E4) supports ongoing data theft operations. These behaviors are characteristic of an infostealer.",,,1
+2025-12-25T20:50:07.311859,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates collected data to a remote server (E2), and maintains persistence (E3). Communication with a command and control server (E4) supports ongoing data theft operations. Temporary files for storing captured data (E5) further indicate data collection and theft behavior. These behaviors align with an Infostealer.",,,1
+2025-12-25T20:50:07.311871,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The sample captures keystrokes to steal user credentials and exfiltrates collected data to a remote server, which are typical behaviors of an infostealer. Persistence and C2 communication support its ongoing data theft operations.",,,1
+2025-12-25T20:50:07.311881,gpt-4.1-mini,INFO_008,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal user credentials, which is a primary behavior of infostealers. It also ensures persistence and communicates with a command and control server, typical for malware that aims to continuously steal and exfiltrate information. The creation of temporary files to store captured data further supports the infostealer classification.",,,0
+2025-12-25T20:50:15.299156,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:50:15.299184,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,cot,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, scans for sensitive documents, and exfiltrates stolen data to a remote server. It also maintains persistence and communicates with a command and control server. These behaviors are characteristic of an infostealer, which focuses on stealing and exfiltrating sensitive information.",,1,
+2025-12-25T20:50:15.299195,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- Captures keystrokes to steal user credentials [E1]
+- Uploads stolen data to a remote server [E2]
+
+2. Backdoor
+- Communicates with a command and control server to receive instructions [E4]
+- Installs itself in the startup folder to maintain persistence [E3]
+
+3. Generic Malware
+- Scans the filesystem for documents containing sensitive information [E5]
+- Installs itself in the startup folder to maintain persistence [E3]
+
+Best label:",,1,
+2025-12-25T20:50:15.299209,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, scans for sensitive documents, and exfiltrates stolen data to a remote server. These behaviors are characteristic of an infostealer. Persistence and C2 communication support ongoing data theft operations.",1.0,1,
+2025-12-25T20:50:15.299223,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, scans the filesystem for sensitive documents, and exfiltrates stolen data to a remote server. It also communicates with a command and control server. These behaviors are characteristic of an infostealer, which focuses on gathering and transmitting sensitive information.",,,1
+2025-12-25T20:50:15.299234,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), uploads stolen data to a remote server (E2), and scans the filesystem for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:50:15.299246,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, scans for sensitive documents, and exfiltrates stolen data to a remote server. These behaviors are characteristic of an infostealer. Persistence and C2 communication support ongoing data theft operations.",,,1
+2025-12-25T20:50:15.299256,gpt-4.1-mini,INFO_009,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal user credentials and scans the filesystem for sensitive documents, which are typical behaviors of an infostealer. Persistence and C2 communication support ongoing data theft operations.",,,0
+2025-12-25T20:50:24.209094,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,direct,orig,Infostealer,,,1,
+2025-12-25T20:50:24.209120,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,cot,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,1,
+2025-12-25T20:50:24.209127,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- Captures keystrokes to steal user credentials [E1]
+- Exfiltrates stolen data to a remote server [E2]
+
+2. Backdoor
+- Communicates with a command and control server for instructions [E4]
+- Installs itself in the startup folder to maintain persistence [E3]
+
+3. Generic Malware
+- Scans the file system for sensitive documents [E5]
+- Maintains persistence and communicates with C2 [E3, E4]
+
+Best label:",,1,
+2025-12-25T20:50:24.209136,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,cva,orig,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",1.0,1,
+2025-12-25T20:50:24.209146,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,cva,remove_persistence,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials, scans the file system for sensitive documents, and exfiltrates stolen data to a remote server. These behaviors are characteristic of an infostealer, as it focuses on gathering and transmitting sensitive information.",,,1
+2025-12-25T20:50:24.209152,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,cva,mask_encryption,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:50:24.209158,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,cva,modify_c2,Infostealer,"The evidence shows the malware captures keystrokes to steal credentials (E1), exfiltrates stolen data to a remote server (E2), and scans the file system for sensitive documents (E5). These behaviors are characteristic of an infostealer. Persistence (E3) and C2 communication (E4) support ongoing data theft operations.",,,1
+2025-12-25T20:50:24.209163,gpt-4.1-mini,INFO_010,Infostealer,Infostealer,cva,suppress_exfiltration,Infostealer,"The sample captures keystrokes to steal user credentials and scans the file system for sensitive documents, which are typical behaviors of an infostealer. It also maintains persistence and communicates with a command and control server, supporting its role in data theft rather than direct system damage or control.",,,0
+2025-12-25T20:50:32.503366,gpt-4.1-mini,BD_003,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:50:32.503393,gpt-4.1-mini,BD_003,Backdoor,Backdoor,cot,orig,Backdoor,"The sample exhibits characteristics typical of a backdoor: it ensures persistence by installing a service, communicates with a remote server for command and control, attempts privilege escalation, and modifies system files to remain hidden. Although it captures credentials, the primary behavior aligns with backdoor functionality rather than purely stealing information or ransomware activity.",,1,
+2025-12-25T20:50:32.503404,gpt-4.1-mini,BD_003,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+   - [E2] It communicates with a remote server to receive commands
+   - [E3] The backdoor attempts to escalate privileges using known exploits
+
+2. Infostealer
+   - [E4] It captures and sends user credentials to the attacker
+   - [E5] The malware modifies system files to hide its presence (often used by stealers to avoid detection)
+
+3. Generic Malware
+   - [E1] The malware installs a service to ensure it runs on startup (common in many malware types)
+   - [E5] The malware modifies system files to hide its presence
+
+Best label:",,1,
+2025-12-25T20:50:32.503420,gpt-4.1-mini,BD_003,Backdoor,Backdoor,cva,orig,Backdoor,"The sample installs a service for persistence, communicates with a remote server for commands, attempts privilege escalation, captures and sends user credentials, and modifies system files to hide itself. These behaviors align with a backdoor, which typically maintains access, communicates with a C2 server, and attempts to remain undetected.",1.0,1,
+2025-12-25T20:50:32.503433,gpt-4.1-mini,BD_003,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, attempts privilege escalation, captures and sends user credentials, and modifies system files to hide itself. These behaviors are characteristic of a backdoor, which provides persistent remote access and control to an attacker.",,,0
+2025-12-25T20:50:32.503444,gpt-4.1-mini,BD_003,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample exhibits persistence by installing a service to run on startup, communicates with a remote server for commands, attempts privilege escalation, and modifies system files to hide itself. These behaviors are characteristic of a backdoor, which maintains access and control over the infected system. Although it captures credentials, the primary functionality aligns with backdoor activity rather than solely credential theft.",,,1
+2025-12-25T20:50:32.503455,gpt-4.1-mini,BD_003,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample exhibits characteristics typical of a backdoor: it ensures persistence by installing a service, uses a covert C2 channel disguised as a benign service, attempts privilege escalation, and modifies system files to maintain stealth. Although it captures credentials, this is often a secondary function of backdoors rather than the primary goal of infostealers.",,,0
+2025-12-25T20:50:32.503466,gpt-4.1-mini,BD_003,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample exhibits characteristics typical of a backdoor: it ensures persistence by installing a service, communicates with a remote server for command and control, attempts privilege escalation, and modifies system files to remain hidden. Although it captures credentials, the primary behavior revolves around maintaining unauthorized access and control.",,,1
+2025-12-25T20:50:39.977820,gpt-4.1-mini,BD_004,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:50:39.977840,gpt-4.1-mini,BD_004,Backdoor,Backdoor,cot,orig,Backdoor,"The sample exhibits persistence by installing a service to run on startup, communicates with a remote server to receive commands, and attempts privilege escalation. These behaviors are characteristic of a backdoor. Although it captures credentials and exfiltrates data, these actions support its backdoor functionality rather than defining it as an infostealer or ransomware.",,1,
+2025-12-25T20:50:39.977846,gpt-4.1-mini,BD_004,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+- [E2] It communicates with a remote server to receive commands
+- [E3] The backdoor attempts to escalate privileges to gain admin access
+
+2. Infostealer
+- [E4] It captures user credentials through keylogging
+- [E5] The malware exfiltrates sensitive data to an external server
+
+3. Generic Malware
+- [E1] The malware installs a service to ensure it runs on startup
+- [E5] The malware exfiltrates sensitive data to an external server",,1,
+2025-12-25T20:50:39.977855,gpt-4.1-mini,BD_004,Backdoor,Backdoor,cva,orig,Backdoor,"The sample exhibits persistence by installing a service to run on startup, communicates with a remote server to receive commands, and attempts privilege escalation, all characteristic of backdoor behavior. Although it captures credentials and exfiltrates data, these actions support its primary function of maintaining unauthorized access and control.",1.0,1,
+2025-12-25T20:50:39.977863,gpt-4.1-mini,BD_004,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, attempts privilege escalation, captures user credentials, and exfiltrates sensitive data. These behaviors align with a backdoor that provides remote access and control while also stealing credentials.",,,0
+2025-12-25T20:50:39.977869,gpt-4.1-mini,BD_004,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample exhibits persistence by installing a service to run on startup, communicates with a remote server to receive commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures credentials and exfiltrates data, these actions support its primary function of maintaining unauthorized access and control rather than solely stealing information or encrypting files.",,,1
+2025-12-25T20:50:39.977875,gpt-4.1-mini,BD_004,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample installs a persistent service, uses a disguised C2 endpoint, attempts privilege escalation, captures credentials via keylogging, and exfiltrates data. These behaviors align with a backdoor that maintains access and control over the system while stealing information.",,,0
+2025-12-25T20:50:39.977881,gpt-4.1-mini,BD_004,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample installs a service for persistence, communicates with a remote server for command and control, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures credentials, this alone does not define it as an infostealer since the primary behavior is remote control and persistence.",,,1
+2025-12-25T20:50:48.376878,gpt-4.1-mini,BD_005,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:50:48.376907,gpt-4.1-mini,BD_005,Backdoor,Backdoor,cot,orig,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, and escalates privileges, which are typical behaviors of a backdoor. Although it also harvests credentials and exfiltrates data, these actions support its primary function of maintaining remote access and control.",,1,
+2025-12-25T20:50:48.376918,gpt-4.1-mini,BD_005,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+- [E1] The malware installs itself as a service to restart on boot, indicating persistence typical of backdoors.
+- [E2] It communicates with a remote server to receive commands, a hallmark of backdoor functionality.
+
+2. Infostealer
+- [E4] It harvests credentials from the local machine, which is characteristic of infostealers.
+- [E5] Data is exfiltrated to an external server, supporting information theft behavior.
+
+3. Generic Malware
+- [E3] The malware escalates privileges to gain admin access, a common technique in various malware types.
+- [E1] Persistence via service installation is a generic malware trait.
+
+Best label:",,1,
+2025-12-25T20:50:48.376931,gpt-4.1-mini,BD_005,Backdoor,Backdoor,cva,orig,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, and escalates privileges, which are typical behaviors of a backdoor. Although it also harvests credentials and exfiltrates data, these actions support its primary function of maintaining remote access and control.",1.0,1,
+2025-12-25T20:50:48.376945,gpt-4.1-mini,BD_005,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, indicating remote control capabilities typical of backdoors. It escalates privileges, which supports persistent and elevated access. Although it harvests credentials and exfiltrates data, these actions can be part of a backdoor's functionality to maintain access and gather intelligence. The primary behavior aligns with a backdoor.",,,0
+2025-12-25T20:50:48.376957,gpt-4.1-mini,BD_005,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample installs itself as a service to maintain persistence, communicates with a remote server to receive commands, and escalates privileges, all of which are typical behaviors of a backdoor. Although it also harvests credentials and exfiltrates data, these actions support its primary function of maintaining unauthorized access and control rather than solely stealing information.",,,1
+2025-12-25T20:50:48.376967,gpt-4.1-mini,BD_005,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample exhibits persistence by installing as a service, uses a covert C2 channel disguised as a benign service, escalates privileges, and exfiltrates data. While it harvests credentials, the primary behavior aligns with maintaining remote access and control, typical of a backdoor.",,,0
+2025-12-25T20:50:48.376977,gpt-4.1-mini,BD_005,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample installs itself as a service to maintain persistence, communicates with a remote server to receive commands, and escalates privileges, all typical behaviors of a backdoor. Although it also harvests credentials, the primary behavior is remote control and persistence, which aligns with the Backdoor category.",,,1
+2025-12-25T20:50:57.489572,gpt-4.1-mini,BD_006,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:50:57.489601,gpt-4.1-mini,BD_006,Backdoor,Backdoor,cot,orig,Backdoor,"The sample exhibits characteristics typical of a backdoor: it ensures persistence by installing as a service, communicates with a remote server for command and control, attempts privilege escalation, and modifies system files to avoid detection. Although it captures credentials, this is a common capability in backdoors to facilitate further access.",,1,
+2025-12-25T20:50:57.489612,gpt-4.1-mini,BD_006,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+- [E2] It communicates with a remote server to receive commands
+- [E3] The backdoor attempts to escalate privileges to gain admin access
+
+2. Infostealer
+- [E4] It captures user credentials through keylogging
+- [E5] The malware modifies system files to avoid detection (potentially to hide stolen data)
+
+3. Generic Malware
+- [E1] The malware installs itself as a service to ensure it runs on startup
+- [E5] The malware modifies system files to avoid detection",,1,
+2025-12-25T20:50:57.489627,gpt-4.1-mini,BD_006,Backdoor,Backdoor,cva,orig,Backdoor,"The sample exhibits characteristics typical of a backdoor: it ensures persistence by installing as a service, communicates with a remote server for command and control, and attempts privilege escalation. While it also captures credentials and modifies system files, these behaviors support its role as a backdoor rather than defining it as an infostealer or ransomware.",1.0,1,
+2025-12-25T20:50:57.489640,gpt-4.1-mini,BD_006,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, attempts privilege escalation, captures user credentials, and modifies system files. These behaviors align with a backdoor's typical functionality, which includes maintaining remote access and control over the infected system.",,,0
+2025-12-25T20:50:57.489651,gpt-4.1-mini,BD_006,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample exhibits characteristics typical of a backdoor: it ensures persistence by installing as a service, communicates with a remote server for command and control, and attempts privilege escalation. While it also captures credentials and modifies system files, these behaviors support its role as a backdoor rather than defining it as an infostealer or ransomware.",,,1
+2025-12-25T20:50:57.489662,gpt-4.1-mini,BD_006,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample exhibits characteristics typical of a backdoor: it installs itself as a service for persistence, uses a disguised C2 endpoint, attempts privilege escalation, and modifies system files to avoid detection. Although it captures credentials, this is often a secondary capability of backdoors rather than the primary function of an infostealer.",,,0
+2025-12-25T20:50:57.489673,gpt-4.1-mini,BD_006,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample exhibits characteristics typical of a backdoor: it ensures persistence by installing as a service, communicates with a remote server for command and control, and attempts privilege escalation. While it also captures credentials and modifies system files, these behaviors support its role as a backdoor rather than defining it as an infostealer or ransomware.",,,1
+2025-12-25T20:51:05.580659,gpt-4.1-mini,BD_007,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:51:05.580689,gpt-4.1-mini,BD_007,Backdoor,Backdoor,cot,orig,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures credentials and exfiltrates data, these actions support its primary function of maintaining remote access and control.",,1,
+2025-12-25T20:51:05.580700,gpt-4.1-mini,BD_007,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+   - [E2] It communicates with a remote server to receive commands
+   - [E1] The malware installs itself as a service to start automatically on boot
+
+2. Infostealer
+   - [E4] It captures user credentials through keylogging
+   - [E5] Data is exfiltrated to an external server
+
+3. Generic Malware
+   - [E3] The software attempts to escalate privileges using a known exploit
+   - [E1] The malware installs itself as a service to start automatically on boot",,1,
+2025-12-25T20:51:05.580718,gpt-4.1-mini,BD_007,Backdoor,Backdoor,cva,orig,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures credentials and exfiltrates data, these actions support its primary function of maintaining remote access and control.",1.0,1,
+2025-12-25T20:51:05.580731,gpt-4.1-mini,BD_007,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, which is characteristic of backdoor functionality. It also attempts privilege escalation, captures credentials, and exfiltrates data, indicating malicious intent beyond simple data theft. However, the primary behavior of receiving commands remotely aligns best with a backdoor.",,,0
+2025-12-25T20:51:05.580742,gpt-4.1-mini,BD_007,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures credentials and exfiltrates data, these actions support its primary function of maintaining unauthorized access and control.",,,1
+2025-12-25T20:51:05.580753,gpt-4.1-mini,BD_007,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample installs itself as a service for persistence, uses a covert C2 channel disguised as a benign service, attempts privilege escalation, captures credentials, and exfiltrates data. These behaviors align with a backdoor that maintains access and control over the system while stealing information.",,,0
+2025-12-25T20:51:05.580763,gpt-4.1-mini,BD_007,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures credentials, the primary behavior is remote control and persistence.",,,1
+2025-12-25T20:51:14.281655,gpt-4.1-mini,BD_008,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:51:14.281685,gpt-4.1-mini,BD_008,Backdoor,Backdoor,cot,orig,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server for command and control, attempts privilege escalation, captures user credentials, and modifies system files to maintain access. These behaviors are characteristic of a backdoor, which aims to maintain unauthorized access and control over the system.",,1,
+2025-12-25T20:51:14.281697,gpt-4.1-mini,BD_008,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+- [E2] It communicates with a remote server to receive commands
+- [E3] The backdoor attempts to escalate privileges using a known exploit
+
+2. Infostealer
+- [E4] It captures user credentials from the login screen
+
+3. Generic Malware
+- [E1] The malware installs itself as a service to start automatically on boot
+- [E5] The malware modifies system files to maintain access",,1,
+2025-12-25T20:51:14.281766,gpt-4.1-mini,BD_008,Backdoor,Backdoor,cva,orig,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server for command and control, attempts privilege escalation, and modifies system files to maintain access. These behaviors are characteristic of a backdoor, which aims to maintain unauthorized access and control over the system.",1.0,1,
+2025-12-25T20:51:14.281795,gpt-4.1-mini,BD_008,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, attempts privilege escalation, captures user credentials, and modifies system files to maintain access. These behaviors are characteristic of a backdoor, which aims to provide persistent remote access and control.",,,0
+2025-12-25T20:51:14.281807,gpt-4.1-mini,BD_008,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures user credentials, the primary functionality is remote access and control.",,,1
+2025-12-25T20:51:14.281818,gpt-4.1-mini,BD_008,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample exhibits characteristics typical of a backdoor: it installs itself as a persistent service, uses a covert C2 channel disguised as a benign service, attempts privilege escalation, and modifies system files to maintain access. Although it captures credentials, this is often a feature of backdoors to facilitate unauthorized access rather than the primary goal of an infostealer.",,,0
+2025-12-25T20:51:14.281864,gpt-4.1-mini,BD_008,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server for command and control, attempts privilege escalation, and modifies system files to maintain access. These behaviors are characteristic of a backdoor, which aims to maintain unauthorized access and control over the system.",,,1
+2025-12-25T20:51:22.065071,gpt-4.1-mini,BD_009,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:51:22.065101,gpt-4.1-mini,BD_009,Backdoor,Backdoor,cot,orig,Backdoor,"The sample installs itself as a service for persistence, communicates with a remote server to receive commands, exploits vulnerabilities for admin privileges, harvests user credentials, and exfiltrates data. These behaviors align with a backdoor that provides remote access and control rather than purely stealing information or encrypting files.",,1,
+2025-12-25T20:51:22.065112,gpt-4.1-mini,BD_009,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+- [E2] It communicates with a remote server to receive commands
+- [E3] The backdoor exploits a vulnerability to gain admin privileges
+
+2. Infostealer
+- [E4] It attempts to harvest user credentials from the system
+- [E5] Data is exfiltrated to an external server
+
+3. Generic Malware
+- [E1] The malware installs itself as a service to restart after reboot
+- [E5] Data is exfiltrated to an external server",,1,
+2025-12-25T20:51:22.065127,gpt-4.1-mini,BD_009,Backdoor,Backdoor,cva,orig,Backdoor,"The sample installs itself as a persistent service, communicates with a remote server for commands, exploits vulnerabilities for admin privileges, harvests credentials, and exfiltrates data. These behaviors align with a backdoor that maintains access and control over the system.",1.0,1,
+2025-12-25T20:51:22.065140,gpt-4.1-mini,BD_009,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, indicating remote control capabilities typical of backdoors. It exploits vulnerabilities to gain admin privileges, which is consistent with backdoor behavior to maintain persistence and control. Although it attempts credential access and data exfiltration, these actions can be part of a backdoor's functionality to gather information and send it to an attacker.",,,0
+2025-12-25T20:51:22.065151,gpt-4.1-mini,BD_009,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample exhibits persistence by installing as a service, communicates with a remote server for commands, exploits vulnerabilities for admin privileges, attempts credential harvesting, and exfiltrates data. These behaviors align with typical backdoor functionality, which focuses on maintaining access and control over the compromised system.",,,1
+2025-12-25T20:51:22.065160,gpt-4.1-mini,BD_009,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample exhibits persistence by installing as a service, uses a covert C2 channel disguised as a benign service, escalates privileges via an exploit, harvests credentials, and exfiltrates data. These behaviors align with a backdoor designed to maintain access and control over the compromised system.",,,0
+2025-12-25T20:51:22.065170,gpt-4.1-mini,BD_009,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample installs itself as a service to maintain persistence, communicates with a remote server to receive commands, and exploits vulnerabilities to gain admin privileges. These behaviors are characteristic of a backdoor, which allows remote control and unauthorized access. Although it attempts to harvest credentials, this is a common secondary capability of backdoors rather than the primary function of an infostealer.",,,1
+2025-12-25T20:51:28.753657,gpt-4.1-mini,BD_010,Backdoor,Backdoor,direct,orig,Backdoor,,,1,
+2025-12-25T20:51:28.753680,gpt-4.1-mini,BD_010,Backdoor,Backdoor,cot,orig,Backdoor,"The sample exhibits persistence by installing as a service, communicates with a remote server for commands, and attempts privilege escalation, all typical backdoor behaviors. Although it captures credentials and exfiltrates data, these actions support its backdoor functionality rather than indicating a primary infostealer role.",,1,
+2025-12-25T20:51:28.753690,gpt-4.1-mini,BD_010,Backdoor,Backdoor,tot,orig,Backdoor,"Candidate labels:
+
+1. Backdoor
+- [E2] It communicates with a remote server to receive commands
+- [E3] The backdoor attempts to escalate privileges using a known exploit
+
+2. Infostealer
+- [E4] It captures user credentials from the login screen
+- [E5] User data is sent to an external IP address
+
+3. Generic Malware
+- [E1] The malware installs itself as a service to restart after reboot
+- [E3] The backdoor attempts to escalate privileges using a known exploit",,1,
+2025-12-25T20:51:28.753702,gpt-4.1-mini,BD_010,Backdoor,Backdoor,cva,orig,Backdoor,"The sample exhibits persistence by installing as a service, communicates with a remote server for commands, and attempts privilege escalation, all typical backdoor behaviors. Although it captures credentials and exfiltrates data, these actions support its backdoor functionality rather than indicating a primary infostealer role.",1.0,1,
+2025-12-25T20:51:28.753714,gpt-4.1-mini,BD_010,Backdoor,Backdoor,cva,remove_persistence,Backdoor,"The sample communicates with a remote server to receive commands, which is characteristic of backdoors. It also attempts privilege escalation and captures user credentials, which supports unauthorized access and control. The exfiltration of user data further indicates malicious intent consistent with backdoor behavior.",,,0
+2025-12-25T20:51:28.753725,gpt-4.1-mini,BD_010,Backdoor,Backdoor,cva,mask_encryption,Backdoor,"The sample exhibits persistence by installing itself as a service, communicates with a remote server for commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures credentials and exfiltrates data, these actions support its primary function of maintaining unauthorized access rather than solely stealing information.",,,1
+2025-12-25T20:51:28.753735,gpt-4.1-mini,BD_010,Backdoor,Backdoor,cva,modify_c2,Backdoor,"The sample exhibits persistence by installing itself as a service, uses a covert C2 channel disguised as a benign service, attempts privilege escalation, captures user credentials, and exfiltrates data. These behaviors align with a backdoor that maintains access and control over the system while stealing credentials.",,,0
+2025-12-25T20:51:28.753745,gpt-4.1-mini,BD_010,Backdoor,Backdoor,cva,suppress_exfiltration,Backdoor,"The sample installs itself as a service to maintain persistence, communicates with a remote server to receive commands, and attempts privilege escalation, all typical behaviors of a backdoor. Although it captures user credentials, the primary behavior aligns with backdoor functionality.",,,1
+2025-12-25T20:51:36.239550,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:51:36.239570,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,cot,orig,Benign,"The software uses encryption for protecting user data during transmission, installs a service for persistence, creates log files, updates itself regularly, and requires user authentication. These behaviors are typical of legitimate software focused on security and user experience rather than malicious intent.",,1,
+2025-12-25T20:51:36.239576,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+1. Benign
+   - Uses standard encryption to protect user data during transmission [E1]
+   - Requires user authentication to access certain features [E5]
+
+2. Generic Malware
+   - Installs a service to ensure it starts automatically with the operating system [E2]
+   - Creates log files in the user's document directory, which could be used for data collection [E3]
+
+3. Backdoor
+   - Installs a service to ensure it starts automatically with the operating system [E2]
+   - Updates itself regularly to patch vulnerabilities, possibly to maintain access [E4]
+
+Best label: Benign",,1,
+2025-12-25T20:51:36.239586,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,cva,orig,Benign,"The software uses encryption for protecting user data during transmission, installs a service for persistence, creates log files, updates itself regularly, and requires user authentication. These behaviors are typical of legitimate software focused on security and user experience rather than malicious intent.",1.0,1,
+2025-12-25T20:51:36.239595,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,cva,remove_persistence,Benign,"The sample uses encryption for protecting user data during transmission, creates log files, updates itself regularly, and requires user authentication. These behaviors are typical of legitimate software focused on security and user privacy, with no indication of malicious activity such as data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:51:36.239601,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,cva,mask_encryption,Benign,"The sample shows behavior typical of legitimate software: it installs a service for persistence, creates log files, updates itself regularly, and requires user authentication. The encryption indicators were removed, suggesting no malicious encryption activity. These behaviors align with benign software rather than malware.",,,1
+2025-12-25T20:51:36.239607,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,cva,modify_c2,Benign,"The software uses encryption for protecting user data during transmission, installs a service for persistence, creates log files, updates itself regularly, and requires user authentication. These behaviors are typical of legitimate software focused on security and user experience rather than malicious intent.",,,1
+2025-12-25T20:51:36.239614,gpt-4.1-mini,BENIGN_003,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The software uses encryption for protecting user data during transmission, installs a service for persistence, creates log files, updates itself regularly, and requires user authentication. These behaviors are typical of legitimate software focused on security and user experience rather than malicious intent.",,,1
+2025-12-25T20:51:43.264340,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:51:43.264371,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,cot,orig,Benign,"The software uses encryption to protect user data, installs a service for persistence, creates log files for troubleshooting, downloads updates from a trusted server, and requires user consent before accessing sensitive data. These behaviors indicate legitimate, user-focused functionality without malicious intent.",,1,
+2025-12-25T20:51:43.264381,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+
+1. Benign
+- Uses standard encryption to protect user data [E1]
+- Requires user consent before accessing sensitive data [E5]
+
+2. Generic Malware
+- Installs a service to ensure it starts with the operating system [E2]
+- Creates log files to store user activity, which could be misused [E3]
+
+3. Backdoor
+- Installs a persistent service that could be exploited for unauthorized access [E2]
+- Downloads regular updates from a server, which might be a command and control server [E4]
+
+Best label: Benign",,1,
+2025-12-25T20:51:43.264395,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,cva,orig,Benign,"The software uses encryption to protect user data, installs a service for persistence, creates log files for troubleshooting, downloads updates from a trusted server, and requires user consent before accessing sensitive data. These behaviors indicate legitimate, user-focused functionality without malicious intent.",1.0,1,
+2025-12-25T20:51:43.264409,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,cva,remove_persistence,Benign,"The sample uses encryption to protect user data, creates log files for troubleshooting, downloads updates from a trusted server, and requires user consent before accessing sensitive data. These behaviors indicate legitimate, user-focused functionality without malicious intent.",,,1
+2025-12-25T20:51:43.264420,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,cva,mask_encryption,Benign,"Reasoning: The sample shows persistence by installing a service, creates log files for troubleshooting, downloads regular updates from a trusted source, and requires user consent before accessing sensitive data. There are no indicators of malicious behavior such as data theft, unauthorized access, or encryption for ransom. The encryption indicators were removed, suggesting no malicious encryption activity. Overall, the behavior aligns with benign software.",,,1
+2025-12-25T20:51:43.264430,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,cva,modify_c2,Benign,"The software uses encryption to protect user data, installs a service for persistence, creates log files for troubleshooting, downloads updates from a trusted server, and requires user consent before accessing sensitive data. These behaviors indicate legitimate, user-focused functionality without malicious intent.",,,1
+2025-12-25T20:51:43.264441,gpt-4.1-mini,BENIGN_004,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The software uses encryption to protect user data, installs a service for persistence, creates log files for troubleshooting, downloads updates from a trusted server, and requires user consent before accessing sensitive data. These behaviors indicate legitimate, user-focused functionality without malicious intent.",,,1
+2025-12-25T20:51:54.116696,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:51:54.116726,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,cot,orig,Benign,"The software uses AES encryption locally to secure user data, installs a service for persistence to start on boot, creates temporary files for caching, checks for updates from a trusted server, and logs user actions to enhance experience. All these behaviors are typical of benign software focused on user convenience and data security without malicious intent.",,1,
+2025-12-25T20:51:54.116737,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+
+1. Benign
+- Uses AES encryption to secure user data locally, which is a common practice for legitimate software to protect user privacy [E1].
+- Installs a service to ensure it starts on boot for user convenience, typical behavior for benign applications [E2].
+- Creates temporary files and logs user actions locally to enhance user experience, indicating normal application behavior [E3, E5].
+- Checks for updates by connecting to a trusted server, a standard feature in legitimate software [E4].
+
+2. Generic Malware
+- Uses encryption which could be suspicious, but no evidence of malicious intent or data exfiltration is present [E1].
+- Persistence via service installation could be used by malware, but here it is for user convenience [E2].
+
+3. Infostealer
+- No evidence of data exfiltration or unauthorized access to user information.
+- No network activity indicating stealing of information.
+
+Best label: Benign",,1,
+2025-12-25T20:51:54.116752,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,cva,orig,Benign,"The software uses AES encryption locally, installs a service for persistence, creates temporary files, checks for updates from a trusted server, and logs user actions. These behaviors are typical for benign software focused on user convenience and data security, with no indication of malicious activity such as data theft, unauthorized access, or ransom demands.",1.0,1,
+2025-12-25T20:51:54.116765,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,cva,remove_persistence,Benign,"The sample uses AES encryption solely for securing user data locally, creates temporary files for caching, checks for updates from a trusted server, and logs user actions to improve experience. There is no indication of malicious behavior such as data theft, unauthorized access, or ransom demands.",,,1
+2025-12-25T20:51:54.116776,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,cva,mask_encryption,Benign,"Reasoning: The evidence shows typical benign software behavior such as installing a service for persistence to improve user convenience, creating temporary files for caching, checking for updates from a trusted server, and logging user actions locally. There are no indicators of malicious activity like data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:51:54.116788,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,cva,modify_c2,Benign,"The software uses AES encryption locally to secure user data, installs a service for persistence to start on boot, creates temporary files for caching, checks for updates from a trusted server, and logs user actions to improve experience. All these behaviors are typical of benign software designed to enhance functionality and user convenience without malicious intent.",,,1
+2025-12-25T20:51:54.116798,gpt-4.1-mini,BENIGN_005,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The software uses AES encryption but only to secure user data locally, which is a common benign practice. It installs a service for persistence to improve user convenience, creates temporary files for caching, checks for updates from a trusted server, and logs user actions locally. There is no evidence of malicious behavior such as data theft, unauthorized access, or ransom demands.",,,1
+2025-12-25T20:52:03.947965,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:52:03.947988,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,cot,orig,Benign,"The software uses encryption to protect user data, installs a service for persistence, manages configuration files, updates itself regularly, and includes a help module. These behaviors are typical of legitimate software designed to enhance user experience and security, with no indication of malicious intent such as data theft, unauthorized access, or ransom demands.",,1,
+2025-12-25T20:52:03.947996,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+1. Benign
+   - Uses standard encryption to protect user data [E1]
+   - Includes a help module for user assistance and troubleshooting [E5]
+
+2. Generic Malware
+   - Installs a service to ensure it starts with the operating system [E2]
+   - Creates and manages user-specific configuration files [E3]
+
+3. Backdoor
+   - Installs a service to ensure persistence [E2]
+   - Updates itself regularly to patch vulnerabilities [E4]",,1,
+2025-12-25T20:52:03.948007,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,cva,orig,Benign,"The evidence shows the software uses encryption for protecting user data, installs a service for persistence, manages configuration files, updates itself regularly, and includes a help module. These behaviors are typical of legitimate, well-designed software focused on user experience and security, with no indication of malicious activity such as data theft, unauthorized access, or ransomware behavior.",1.0,1,
+2025-12-25T20:52:03.948016,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,cva,remove_persistence,Benign,"The sample uses standard encryption to protect user data, manages user-specific configuration files, updates itself regularly, and includes a help module. These behaviors are typical of legitimate software focused on user data protection and maintenance rather than malicious activity.",,,1
+2025-12-25T20:52:03.948025,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,cva,mask_encryption,Benign,"The evidence shows the software installs a service for persistence, manages user configuration files, updates itself regularly, and includes a help module. These behaviors are typical of legitimate software maintaining functionality and user support. There are no indicators of malicious activity such as data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:52:03.948033,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,cva,modify_c2,Benign,"The evidence shows the software uses encryption to protect user data, installs a service for persistence, manages configuration files, updates itself regularly, and includes a help module. These behaviors are typical of legitimate, user-focused software designed for usability and security, without any indication of malicious intent such as data theft, unauthorized access, or ransomware activity.",,,1
+2025-12-25T20:52:03.948041,gpt-4.1-mini,BENIGN_006,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The evidence shows the software uses encryption to protect user data, installs a service for persistence, manages configuration files, updates itself regularly, and includes a help module. These behaviors are typical of legitimate, well-designed software focused on user experience and security, with no indication of malicious activity such as data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:52:11.115197,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:52:11.115225,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,cot,orig,Benign,"The sample uses AES encryption for local data security, installs a service for persistence, manages its own configuration files, checks for updates from a trusted server, and logs errors locally. These behaviors are typical of legitimate software designed to protect user data and maintain functionality without malicious intent.",,1,
+2025-12-25T20:52:11.115236,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+1. Benign
+   - Uses AES encryption to secure user data locally, which is a common practice for legitimate software [E1].
+   - Installs a service for automatic startup and manages configuration files, typical for benign applications [E2, E3].
+2. Generic Malware
+   - Persistence mechanisms like installing services can be used by malware, but no malicious behavior is evident here [E2].
+3. Infostealer
+   - No evidence of data exfiltration or credential theft is present, making this unlikely [none].",,1,
+2025-12-25T20:52:11.115250,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,cva,orig,Benign,"The sample uses AES encryption for local data security, installs a service for persistence, manages its own configuration files, checks for updates from a trusted server, and logs errors locally. These behaviors are typical of legitimate software designed to protect user data and maintain functionality without malicious intent.",1.0,1,
+2025-12-25T20:52:11.115263,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,cva,remove_persistence,Benign,"The sample uses AES encryption solely to secure user data locally, manages configuration files, checks for updates from a trusted server, and logs errors for troubleshooting. There is no indication of malicious behavior such as unauthorized data exfiltration, remote control, or ransom demands.",,,1
+2025-12-25T20:52:11.115274,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,cva,mask_encryption,Benign,"The sample shows typical benign software behavior: it installs a service for persistence, manages its own configuration files, checks for updates from a trusted server, and logs errors locally. There is no indication of malicious activity such as data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:52:11.115285,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,cva,modify_c2,Benign,"The sample uses AES encryption for local data security, installs a service for persistence, manages its own configuration files, checks for updates from a trusted server, and logs errors locally. These behaviors are typical of legitimate software designed to protect user data and maintain functionality without malicious intent.",,,1
+2025-12-25T20:52:11.115296,gpt-4.1-mini,BENIGN_007,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The sample uses AES encryption for local data security, installs a service for persistence, manages its own configuration files, checks for updates from a trusted server, and logs errors locally. These behaviors are typical for legitimate software ensuring data protection, reliability, and maintainability without any indication of malicious activity.",,,1
+2025-12-25T20:52:23.165526,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:52:23.165545,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,cot,orig,Benign,"The software uses encryption for securing user data during transmission, which is a common practice in benign applications to protect privacy. It installs a service for persistence, creates temporary files, updates itself automatically, and logs user activity to enhance user experience. None of these behaviors indicate malicious intent such as data theft, unauthorized access, or ransomware activity.",,1,
+2025-12-25T20:52:23.165549,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+1. Benign
+   - Uses encryption to secure user data during transmission [E1]
+   - Installs a service for persistence and updates itself automatically [E2, E4]
+
+2. Generic Malware
+   - Creates temporary files and installs persistent services which could be suspicious [E2, E3]
+
+3. Infostealer
+   - Logs user activity which could be used to steal information [E5]
+
+Best label:",,1,
+2025-12-25T20:52:23.165556,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,cva,orig,Benign,"The software uses encryption for securing user data during transmission, which is a common practice in benign applications to protect privacy. It installs a service for persistence, creates temporary files, updates itself automatically, and logs user activity to enhance user experience. None of these behaviors indicate malicious intent such as data theft, unauthorized access, or ransomware activity.",1.0,1,
+2025-12-25T20:52:23.165562,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,cva,remove_persistence,Benign,"The sample uses encryption for securing user data during transmission, creates temporary files, updates itself automatically, and logs user activity to enhance user experience. These behaviors are typical of benign software focused on user functionality and security, without any indication of malicious intent such as data theft, unauthorized access, or ransomware activity.",,,1
+2025-12-25T20:52:23.165566,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,cva,mask_encryption,Benign,"The sample shows behavior typical of legitimate software: it installs a service for persistence, creates temporary files for processing, updates itself automatically, and logs user activity to enhance experience. The encryption indicators were removed, suggesting no malicious encryption activity. There is no evidence of malicious intent such as data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:52:23.165570,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,cva,modify_c2,Benign,"The software uses encryption for securing user data during transmission, which is a common practice for legitimate applications to protect privacy. It installs a service for persistence, creates temporary files, updates itself automatically, and logs user activity to enhance user experience. None of these behaviors indicate malicious intent such as data theft, unauthorized access, or ransomware activity. The evidence aligns with typical benign software functionality.",,,1
+2025-12-25T20:52:23.165577,gpt-4.1-mini,BENIGN_008,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The software uses encryption for securing user data during transmission, which is a common practice in benign applications to protect privacy. It installs a service for persistence, creates temporary files, updates itself automatically, and logs user activity to enhance user experience. None of these behaviors indicate malicious intent such as data theft, unauthorized access, or ransomware activity.",,,1
+2025-12-25T20:52:30.775067,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:52:30.775091,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,cot,orig,Benign,"The software uses standard encryption to secure user data, installs as a service for persistence, creates log files, provides regular updates, and requires user authentication. These behaviors are typical of legitimate software designed to protect and manage user data rather than malicious activity.",,1,
+2025-12-25T20:52:30.775097,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+1. Benign
+   - Uses standard encryption to secure user data [E1]
+   - Requires user authentication for access and provides regular updates [E4, E5]
+
+2. Generic Malware
+   - Installs as a service to ensure persistence [E2]
+   - Creates files in the user directory which could be used for malicious purposes [E3]
+
+3. Infostealer
+   - Creates log files in the user directory which might be used to collect information [E3]
+   - Installs as a service to maintain access [E2]
+
+Best label:",,1,
+2025-12-25T20:52:30.775107,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,cva,orig,Benign,"The software uses standard encryption to secure user data, installs as a service for persistence, creates log files, provides regular updates, and requires user authentication. These behaviors are typical of legitimate software focused on user data protection and functionality enhancement, with no indication of malicious activity such as data theft, unauthorized access, or ransomware behavior.",1.0,1,
+2025-12-25T20:52:30.775116,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,cva,remove_persistence,Benign,"The evidence shows the software uses standard encryption for securing user data, creates log files, provides regular updates, and requires user authentication. These behaviors are typical for benign software focused on security and functionality, with no indication of malicious activity such as data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:52:30.775122,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,cva,mask_encryption,Benign,"Reasoning: The sample shows benign behaviors such as installing as a service for persistence, creating log files, providing regular updates, and requiring user authentication. There is no indication of malicious activity like data theft, unauthorized access, or ransomware behavior.",,,1
+2025-12-25T20:52:30.775129,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,cva,modify_c2,Benign,"The sample uses standard encryption to secure user data, installs as a service for persistence, creates log files, provides regular updates, and requires user authentication. These behaviors are typical of legitimate software designed to protect and manage user data rather than malicious activity.",,,1
+2025-12-25T20:52:30.775135,gpt-4.1-mini,BENIGN_009,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The sample uses standard encryption to secure user data, installs as a service for persistence, creates log files, provides regular updates, and requires user authentication. These behaviors are typical of legitimate software designed to protect and manage user data rather than malicious activity.",,,1
+2025-12-25T20:52:38.536468,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,direct,orig,Benign,,,1,
+2025-12-25T20:52:38.536486,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,cot,orig,Benign,"The software uses encryption to secure user data, installs a service for persistence, creates log files for debugging, checks for updates, and requires user consent before accessing sensitive information. These behaviors align with legitimate, user-focused software designed to protect and maintain user data securely without malicious intent.",,1,
+2025-12-25T20:52:38.536493,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,tot,orig,Benign,"Candidate labels:
+1. Benign
+   - Uses standard encryption to secure user data [E1]
+   - Requires user consent before accessing sensitive information [E5]
+
+2. Generic Malware
+   - Installs a service to ensure it runs at startup [E2]
+   - Creates log files to track user activity, which could be misused [E3]
+
+3. Infostealer
+   - Checks for updates regularly, potentially to maintain stealth [E4]
+   - Accesses sensitive information, though with user consent [E5]
+
+Best label:",,1,
+2025-12-25T20:52:38.536502,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,cva,orig,Benign,"The evidence shows the software uses encryption for securing user data, installs a service for startup convenience, creates log files for debugging, checks for updates, and requires user consent before accessing sensitive information. These behaviors align with legitimate, user-focused software rather than malicious activity.",1.0,1,
+2025-12-25T20:52:38.536511,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,cva,remove_persistence,Benign,"The sample uses encryption for securing user data, creates log files for debugging, checks for updates, and requires user consent before accessing sensitive information. These behaviors are typical of legitimate software focused on security and user privacy, with no indication of malicious activity.",,,1
+2025-12-25T20:52:38.536518,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,cva,mask_encryption,Benign,"The sample shows indicators of benign behavior such as installing a service for user convenience, creating log files for debugging, checking for updates to maintain security, and requiring user consent before accessing sensitive information. The encryption indicators were removed, suggesting no malicious encryption activity. These behaviors align with legitimate software rather than malware.",,,1
+2025-12-25T20:52:38.536525,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,cva,modify_c2,Benign,"The software uses encryption to secure user data, installs a service for persistence, creates log files for debugging, checks for updates, and requires user consent before accessing sensitive information. These behaviors align with legitimate, user-focused software designed to protect and maintain user data securely without malicious intent.",,,1
+2025-12-25T20:52:38.536532,gpt-4.1-mini,BENIGN_010,Benign Software,Benign,cva,suppress_exfiltration,Benign,"The software uses encryption to secure user data, installs a service for persistence to run at startup, creates log files for debugging, checks for updates regularly, and requires user consent before accessing sensitive information. These behaviors align with typical benign software practices focused on user security and convenience without malicious intent.",,,1
+2025-12-25T20:52:49.101692,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,direct,orig,Infostealer,,,0,
+2025-12-25T20:52:49.101712,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,cot,orig,Infostealer,"The sample exhibits persistence by installing itself in the system registry and communicates with a remote server, indicating command and control capabilities. It attempts to harvest stored browser passwords, which is a hallmark of credential theft. The creation of hidden files and use of obfuscation techniques further support malicious intent. The primary behavior of credential harvesting aligns most closely with an Infostealer.",,0,
+2025-12-25T20:52:49.101718,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- [E3] The malware attempts to harvest stored browser passwords
+- [E4] It creates hidden files to store temporary data (likely to store stolen information)
+
+2. Backdoor
+- [E2] It communicates with a remote server to receive commands
+- [E1] The malware installs itself in the system registry to start on boot (persistence for remote access)
+
+3. Generic Malware
+- [E5] The malware uses obfuscation techniques to avoid detection
+- [E4] It creates hidden files to store temporary data (general malicious behavior)
+
+Best label:",,0,
+2025-12-25T20:52:49.101727,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,cva,orig,Infostealer,"The sample exhibits persistence by installing itself in the system registry and communicates with a remote server, indicating command and control capabilities. It attempts to harvest stored browser passwords, which is a hallmark of credential theft. The creation of hidden files and use of obfuscation techniques further support malicious intent. The primary behavior of credential harvesting aligns most closely with an Infostealer.",0.75,0,
+2025-12-25T20:52:49.101734,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,cva,remove_persistence,Infostealer,"The sample communicates with a remote server to receive commands, indicating control capabilities typical of backdoors or generic malware. It attempts to harvest stored browser passwords, which is characteristic of infostealers. It also creates hidden files and uses obfuscation, common in many malware types. Since it primarily focuses on credential theft and command communication without evidence of encryption or ransom demands, it aligns best with an Infostealer.",,,0
+2025-12-25T20:52:49.101740,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,cva,mask_encryption,Infostealer,"The sample exhibits persistence by installing itself in the system registry and communicates with a remote server for commands, indicating control capabilities typical of backdoors. It also attempts to harvest stored browser passwords, which is characteristic of infostealers. The creation of hidden files and use of obfuscation are common in many malware types. Since the sample combines credential theft with command and control communication but does not specifically encrypt files or demand ransom, it fits best as an Infostealer.",,,0
+2025-12-25T20:52:49.101746,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,cva,modify_c2,Infostealer,"The sample exhibits persistence by installing itself in the system registry and uses obfuscation to avoid detection, which are common traits of malware. It attempts to harvest stored browser passwords, indicating credential theft capabilities. The presence of altered C2 indicators and hidden files for temporary data storage further supports malicious behavior. These characteristics align with an infostealer, as the primary malicious activity is credential access.",,,0
+2025-12-25T20:52:49.101752,gpt-4.1-mini,MAL_003,Generic Malware,Generic Malware,cva,suppress_exfiltration,Generic Malware,"The sample exhibits persistence by installing itself in the system registry and communicates with a remote server for commands, indicating control capabilities typical of backdoors. It also attempts to harvest stored browser passwords, a behavior characteristic of infostealers. The creation of hidden files and use of obfuscation are common in many malware types. Since the sample combines credential theft with command and control communication but does not specifically encrypt files or demand ransom, it fits best as Generic Malware.",,,1
+2025-12-25T20:52:58.185137,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,direct,orig,Infostealer,,,0,
+2025-12-25T20:52:58.185165,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and connects to a command and control server, indicating remote control capabilities. It attempts to steal saved passwords from web browsers, which is a hallmark of infostealers. However, it also creates hidden files and displays fake error messages, which are common in various malware types. The combination of credential theft and C2 communication suggests it is more than just generic malware, but since it does not show ransomware behavior or backdoor-specific traits, and given the category is Generic Malware, the best fit is Generic Malware.",,1,
+2025-12-25T20:52:58.185176,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- [E3] The malware attempts to steal saved passwords from web browsers
+- [E4] It creates hidden files to store temporary data (likely to store stolen information)
+
+2. Backdoor
+- [E2] It connects to a command and control server to receive instructions
+- [E1] The malware installs itself in the startup folder to ensure it runs on boot (persistence typical of backdoors)
+
+3. Generic Malware
+- [E5] The malware displays fake error messages to the user (generic disruptive behavior)
+- [E4] It creates hidden files to store temporary data (general malware behavior)
+
+Best label: Infostealer",,0,
+2025-12-25T20:52:58.185190,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and connects to a command and control server, indicating remote control capabilities. It attempts to steal saved passwords from web browsers, which is a hallmark of infostealers. However, it also creates hidden files and displays fake error messages, suggesting additional malicious behaviors beyond just stealing information. The combination of multiple behaviors without a clear focus on ransomware or backdoor functionality supports classification as generic malware.",0.5,1,
+2025-12-25T20:52:58.185203,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,cva,remove_persistence,Infostealer,"The sample connects to a command and control server, indicating remote control capabilities typical of malware. It attempts to steal saved passwords, which is characteristic of an infostealer. It also creates hidden files and displays fake error messages, which are common tactics to evade detection and deceive users. The presence of credential theft is a strong indicator that the primary function is information stealing rather than ransomware or backdoor activity.",,,0
+2025-12-25T20:52:58.185220,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,cva,mask_encryption,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and connects to a command and control server, indicating remote control capabilities. It attempts to steal saved passwords from web browsers, which is a hallmark of infostealers. However, it also creates hidden files and displays fake error messages, behaviors common in various malware types. Since it combines credential theft with other generic malicious behaviors without clear ransomware or backdoor-specific actions, it fits best under Generic Malware.",,,1
+2025-12-25T20:52:58.185230,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,cva,modify_c2,Infostealer,"The sample exhibits persistence by installing itself in the startup folder and uses a disguised C2 channel. It attempts credential access by stealing saved passwords from browsers, indicating infostealing behavior. It also manipulates the filesystem by creating hidden files and uses social engineering by displaying fake error messages. The combination of credential theft and persistence suggests it is more than just generic malware, but since it primarily focuses on stealing information rather than encrypting files or providing remote control, it fits best as an Infostealer.",,,0
+2025-12-25T20:52:58.185241,gpt-4.1-mini,MAL_004,Generic Malware,Generic Malware,cva,suppress_exfiltration,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and connects to a command and control server, indicating remote control capabilities. It attempts to steal saved passwords from web browsers, which is a hallmark of infostealers. However, it also creates hidden files and displays fake error messages, which are common in various malware types. The combination of credential theft and C2 communication suggests it is more than just generic malware, but since it does not show ransomware behavior or backdoor-specific traits, and given the category is Generic Malware, the best fit is Generic Malware.",,,1
+2025-12-25T20:53:07.961952,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,direct,orig,Infostealer,,,0,
+2025-12-25T20:53:07.961981,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,cot,orig,Infostealer,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities typical of backdoors. It scans the filesystem and attempts to extract saved passwords, which are behaviors associated with infostealers. Additionally, it logs keystrokes, another credential theft technique. The combination of credential access and keylogging strongly suggests the primary function is stealing information rather than encrypting files or solely providing remote access.",,0,
+2025-12-25T20:53:07.961992,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- [E4] It attempts to extract saved passwords from web browsers
+- [E5] The malware logs keystrokes to capture user input
+
+2. Backdoor
+- [E2] It communicates with a command and control server to receive instructions
+- [E1] The malware installs itself in the startup folder to ensure it runs on boot
+
+3. Generic Malware
+- [E1] The malware installs itself in the startup folder to ensure it runs on boot
+- [E3] The malware scans the file system for specific file types",,0,
+2025-12-25T20:53:07.962034,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,cva,orig,Infostealer,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It scans the filesystem for specific file types, attempts to extract saved passwords from web browsers, and logs keystrokes to capture user input. These behaviors are characteristic of an infostealer, as the primary goal is to gather sensitive information such as credentials and keystrokes.",1.0,0,
+2025-12-25T20:53:07.962048,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,cva,remove_persistence,Infostealer,"The sample communicates with a command and control server, indicating remote control capabilities. It scans the file system and attempts to extract saved passwords, which is typical behavior of an infostealer. Additionally, it logs keystrokes to capture user input, further supporting the goal of stealing sensitive information. These behaviors align closely with an Infostealer rather than generic malware or other categories.",,,0
+2025-12-25T20:53:07.962059,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,cva,mask_encryption,Infostealer,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It scans the filesystem for specific file types, attempts to extract saved passwords from web browsers, and logs keystrokes to capture user input. These behaviors are characteristic of an infostealer, as it focuses on gathering sensitive information such as credentials and keystrokes.",,,0
+2025-12-25T20:53:07.962069,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,cva,modify_c2,Infostealer,"The sample exhibits behaviors such as persistence by installing itself in the startup folder, scanning the filesystem for specific file types, extracting saved passwords from web browsers, and logging keystrokes. These actions indicate a focus on stealing information rather than encrypting files (ransomware) or providing remote access (backdoor). The presence of credential access and keylogging strongly suggests it is designed to steal sensitive data.",,,0
+2025-12-25T20:53:07.962079,gpt-4.1-mini,MAL_005,Generic Malware,Generic Malware,cva,suppress_exfiltration,Infostealer,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It scans the filesystem for specific file types, attempts to extract saved passwords from web browsers, and logs keystrokes to capture user input. These behaviors are characteristic of an infostealer, as the primary goal is to gather sensitive information such as credentials and keystrokes.",,,0
+2025-12-25T20:53:17.447111,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,direct,orig,Generic Malware,,,1,
+2025-12-25T20:53:17.447143,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a remote server for commands, indicating remote control capabilities typical of malware. It creates temporary files and encrypts configuration files, likely for stealth and evasion. The VM detection further supports evasion tactics. However, there is no direct evidence of data theft, ransomware behavior, or backdoor-specific actions beyond command and control. The evidence aligns with general malicious behavior without a specific focus, fitting the Generic Malware category.",,1,
+2025-12-25T20:53:17.447154,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,tot,orig,Generic Malware,"Candidate labels:
+
+1. Generic Malware
+- [E1] The malware installs itself in the startup folder to ensure it runs on boot, a common trait of many malware types.
+- [E2] It communicates with a remote server to receive commands, indicating command and control functionality typical of generic malware.
+
+2. Backdoor
+- [E2] It communicates with a remote server to receive commands, which is characteristic of backdoor malware allowing remote control.
+- [E5] The malware checks for virtual machine environments to evade analysis, a tactic often used by backdoors to avoid detection.
+
+3. Infostealer
+- [E3] The malware creates multiple temporary files during execution, which could be used to store stolen data temporarily.
+- [E4] It encrypts configuration files to avoid detection, possibly to protect stolen information or credentials.
+
+Best label:",,1,
+2025-12-25T20:53:17.447170,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample installs itself in the startup folder for persistence, communicates with a remote server for commands, creates temporary files, encrypts configuration files to avoid detection, and checks for virtual machine environments to evade analysis. These behaviors indicate a malware designed for stealth and remote control but do not specifically point to ransomware (no mention of file encryption for ransom), infostealing, or backdoor-specific actions. The evidence aligns with a generic malware profile.",1.0,1,
+2025-12-25T20:53:17.447184,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,cva,remove_persistence,Generic Malware,"The sample communicates with a remote server to receive commands, indicating command and control functionality typical of backdoors or generic malware. It creates temporary files and encrypts configuration files, which suggests attempts to evade detection but not necessarily ransomware behavior. There is no evidence of data theft or encryption of user files for ransom, so it is not an infostealer or ransomware. The behavior aligns with generic malware that performs evasive actions and maintains communication with a C2 server.",,,1
+2025-12-25T20:53:17.447194,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,cva,mask_encryption,Generic Malware,"The sample installs itself in the startup folder for persistence and communicates with a remote server to receive commands, indicating command and control capabilities typical of malware with remote control features. It creates temporary files and performs environment checks to evade analysis. There is no direct evidence of data theft, ransomware behavior, or backdoor-specific indicators beyond general C2 communication. The encryption evidence is masked, so no conclusion can be drawn from that.",,,1
+2025-12-25T20:53:17.447204,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,cva,modify_c2,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder, uses C2 communication disguised as a benign service, creates temporary files, encrypts configuration files to avoid detection, and performs anti-analysis checks. These behaviors are typical of generic malware focused on stealth and persistence rather than specific ransomware encryption or data theft.",,,1
+2025-12-25T20:53:17.447214,gpt-4.1-mini,MAL_006,Generic Malware,Generic Malware,cva,suppress_exfiltration,Generic Malware,"The sample installs itself in the startup folder for persistence, communicates with a remote server for commands, creates temporary files, encrypts configuration files to avoid detection, and performs anti-analysis checks. These behaviors indicate a malware with general malicious capabilities but no specific evidence of ransomware encryption of user files, data theft, or backdoor-specific actions.",,,1
+2025-12-25T20:53:28.018096,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,direct,orig,Infostealer,,,0,
+2025-12-25T20:53:28.018124,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords, which is a hallmark of infostealers. However, it also displays unexpected pop-up ads, which is not typical for infostealers but suggests generic malicious behavior. Given the combination of credential theft and ad display without clear ransomware or backdoor-specific actions, the sample fits best under Generic Malware.",,1,
+2025-12-25T20:53:28.018136,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,tot,orig,Candidate labels:,,,0,
+2025-12-25T20:53:28.018150,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords, which is a hallmark of information-stealing behavior. Additionally, it creates hidden files for temporary data storage and displays unexpected pop-up ads, which are typical of generic malware behavior rather than specialized ransomware or backdoor functionalities.",0.5,1,
+2025-12-25T20:53:28.018163,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,cva,remove_persistence,Infostealer,"The sample communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords, showing credential theft behavior. It also creates hidden files for temporary data storage and displays unexpected pop-up ads. The combination of credential theft and ad display suggests malicious activity beyond simple backdoor or ransomware behavior, but the presence of credential theft is a strong indicator of an infostealer.",,,0
+2025-12-25T20:53:28.018174,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,cva,mask_encryption,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords, which is a hallmark of infostealers. However, it also displays unexpected pop-up ads, which is not typical for pure infostealers and suggests adware-like behavior. Given the combination of credential theft and other miscellaneous malicious activities without a clear focus on ransomware or backdoor functionality, the classification as Generic Malware is appropriate.",,,1
+2025-12-25T20:53:28.018185,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,cva,modify_c2,Infostealer,"The sample exhibits persistence by installing itself in the startup folder and uses a disguised C2 channel. It attempts credential access by stealing saved passwords from browsers, indicating infostealing behavior. It also creates hidden files and displays pop-up ads, which are typical of generic malware with multiple functionalities. However, the presence of credential theft is a strong indicator of infostealer activity.",,,0
+2025-12-25T20:53:28.018195,gpt-4.1-mini,MAL_007,Generic Malware,Generic Malware,cva,suppress_exfiltration,Generic Malware,"The sample exhibits behavior typical of malware that steals credentials (E3), maintains persistence (E1), communicates with a C2 server (E2), and manipulates the filesystem (E4). Additionally, it displays unexpected pop-up ads (E5), which is not typical of ransomware or backdoors but aligns with generic malware that may have multiple malicious functions including infostealing and adware-like behavior. Since it does not specifically encrypt files or demand ransom, nor solely focus on backdoor access, the best classification is Generic Malware.",,,1
+2025-12-25T20:53:42.048539,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,direct,orig,Infostealer,,,0,
+2025-12-25T20:53:42.048566,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords from web browsers, which is a hallmark of infostealers. However, it also displays pop-up ads, which is not typical for infostealers but common in adware or generic malware. The combination of credential theft and adware-like behavior suggests it is not purely an infostealer or ransomware. The evidence points to a broader category of malware with multiple functionalities.",,1,
+2025-12-25T20:53:42.048577,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- [E3] The malware attempts to steal saved passwords from web browsers
+- [E4] It creates hidden files to store temporary data (likely to support data theft)
+
+2. Generic Malware
+- [E1] The malware installs itself in the startup folder to ensure it runs on boot
+- [E2] It communicates with a command and control server to receive instructions
+- [E5] The malware occasionally displays pop-up ads on the infected machine
+
+3. Backdoor
+- [E2] It communicates with a command and control server to receive instructions
+- [E1] The malware installs itself in the startup folder to ensure it runs on boot (persistence typical for backdoors)
+
+Best label: Infostealer",,0,
+2025-12-25T20:53:42.048591,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords from web browsers, which is a hallmark of infostealers. However, it also displays pop-up ads, which is not typical for pure infostealers and suggests additional unwanted behavior. The combination of credential theft and other malicious activities without a clear focus on ransomware or backdoor functionality aligns best with a generic malware classification.",0.25,1,
+2025-12-25T20:53:42.048605,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,cva,remove_persistence,Infostealer,"The sample communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords, which is characteristic of infostealers. It also creates hidden files for temporary data storage and displays pop-up ads, which are common in generic malware but not specific to ransomware or backdoors. The presence of credential theft is a strong indicator of infostealer behavior.",,,0
+2025-12-25T20:53:42.048616,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,cva,mask_encryption,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords, which is characteristic of infostealers. However, it also displays pop-up ads, which is not typical for ransomware or backdoors. The combination of stealing credentials and displaying ads suggests a multifunctional malware but not specifically ransomware or backdoor. Given the mixed behaviors and no strong indication of ransomware or backdoor activity, the classification as Generic Malware is appropriate.",,,1
+2025-12-25T20:53:42.048627,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,cva,modify_c2,Infostealer,"The sample exhibits behavior typical of malware that aims to maintain persistence (E1), communicate covertly with a command and control server disguised as a benign service (E2), and steal credentials from web browsers (E3). It also manipulates the filesystem by creating hidden files (E4) and displays pop-up ads (E5). The presence of credential theft strongly suggests infostealer activity, while the ad pop-ups indicate some generic malicious behavior. However, the primary malicious action is credential theft.",,,0
+2025-12-25T20:53:42.048638,gpt-4.1-mini,MAL_008,Generic Malware,Generic Malware,cva,suppress_exfiltration,Infostealer,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to steal saved passwords, which is a hallmark of infostealers. However, it also displays pop-up ads, which is not typical for ransomware or backdoors. The combination of credential theft and ad display suggests a multifunctional malware but primarily focused on information theft.",,,0
+2025-12-25T20:53:52.065778,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,direct,orig,Infostealer,,,0,
+2025-12-25T20:53:52.065805,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample exhibits persistence by creating a registry key for startup, connects to a C2 server for instructions, modifies system files for evasion, attempts to steal browser passwords, and disguises itself as legitimate software. The presence of credential theft suggests infostealer traits, but combined with persistence, C2 communication, and evasion tactics, it fits a broader malicious behavior profile rather than a focused infostealer or ransomware. Therefore, it aligns best with Generic Malware.",,1,
+2025-12-25T20:53:52.065815,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+   - [E4] It attempts to steal stored browser passwords
+   - [E5] The malware disguises itself as a legitimate software update to trick users into installing it
+
+2. Backdoor
+   - [E2] It connects to a command and control server to receive instructions
+   - [E1] The malware creates a registry key to ensure it runs on startup, maintaining persistence
+
+3. Generic Malware
+   - [E3] The malware modifies system files to evade detection
+   - [E5] The malware disguises itself as a legitimate software update
+
+Best label:",,0,
+2025-12-25T20:53:52.065829,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample exhibits persistence by creating a registry key for startup, connects to a C2 server for instructions, modifies system files for evasion, attempts to steal browser passwords, and disguises itself as legitimate software. The presence of credential theft suggests infostealer behavior, but combined with persistence, C2 communication, and evasion tactics, it indicates a broader malicious functionality rather than a focused infostealer. There is no evidence of ransomware behavior or backdoor-specific actions. Therefore, the sample fits best as Generic Malware.",0.75,1,
+2025-12-25T20:53:52.065843,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,cva,remove_persistence,Infostealer,"The sample connects to a command and control server, modifies system files for evasion, steals stored browser passwords, and disguises itself as legitimate software. These behaviors indicate a combination of stealth, credential theft, and remote control, but the primary focus on stealing credentials and C2 communication suggests it is more than just generic malware.",,,0
+2025-12-25T20:53:52.065855,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,cva,mask_encryption,Generic Malware,"The sample exhibits persistence by creating a registry key for startup, connects to a C2 server for instructions, modifies system files for evasion, and attempts to steal stored browser passwords. While it has credential access capabilities, it also shows behaviors typical of a more general threat, such as evasion and C2 communication. The evidence does not indicate ransomware behavior (e.g., file encryption), nor does it solely focus on credential theft or backdoor functionality. Therefore, it fits best as Generic Malware.",,,1
+2025-12-25T20:53:52.065865,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,cva,modify_c2,Generic Malware,"The sample exhibits persistence by creating a registry key for startup, modifies system files to evade detection, and disguises itself as legitimate software. It also attempts to steal stored browser passwords, indicating credential theft capabilities. The presence of C2 communication further supports malicious intent. However, the evidence does not specifically indicate ransomware behavior (such as file encryption or ransom demands) or backdoor functionality (such as remote control). The primary malicious activity is credential theft, but combined with evasion and persistence, it fits a broader malware profile rather than a specialized infostealer.",,,1
+2025-12-25T20:53:52.065875,gpt-4.1-mini,MAL_009,Generic Malware,Generic Malware,cva,suppress_exfiltration,Generic Malware,"The sample exhibits persistence by creating a registry key for startup, connects to a C2 server for instructions, modifies system files for evasion, attempts to steal browser passwords, and disguises itself as a legitimate update. The presence of credential theft suggests infostealer behavior, but the combination of multiple tactics including persistence, evasion, and C2 communication indicates a broader malicious functionality rather than a focused infostealer or ransomware. Therefore, it fits best under Generic Malware.",,,1
+2025-12-25T20:54:02.529754,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,direct,orig,Infostealer,,,0,
+2025-12-25T20:54:02.529784,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,cot,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to extract saved passwords from the browser, which is a credential access behavior typical of infostealers. However, it also displays random pop-ups, which is not typical of infostealers or ransomware but can be seen in generic malware. The combination of behaviors, including credential theft and random pop-ups, without clear ransomware or backdoor-specific actions, supports the classification as generic malware.",,1,
+2025-12-25T20:54:02.529795,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,tot,orig,Infostealer,"Candidate labels:
+
+1. Infostealer
+- [E4] It attempts to extract saved passwords from the browser, indicating credential theft.
+- [E2] Communicates with a command and control server, possibly to exfiltrate stolen data.
+
+2. Generic Malware
+- [E1] Installs itself in the startup folder for persistence, a common trait in many malware types.
+- [E5] Displays random pop-ups, which is a generic disruptive behavior.
+
+3. Backdoor
+- [E2] Communicates with a command and control server to receive instructions, typical of backdoors.
+- [E3] Creates temporary files to store data, possibly related to command execution or data staging.
+
+Best label: Infostealer",,0,
+2025-12-25T20:54:02.529808,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,cva,orig,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to extract saved passwords from the browser, which is a behavior typical of infostealers. However, it also displays random pop-ups, which is not typical of infostealers but can be seen in generic malware. The combination of multiple behaviors without a clear focus on ransomware or backdoor functionality suggests it is best classified as generic malware.",1.0,1,
+2025-12-25T20:54:02.529820,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,cva,remove_persistence,Generic Malware,"The sample communicates with a command and control server, indicating remote control capabilities typical of malware. It creates temporary files and attempts to extract saved browser passwords, which is characteristic of infostealers. However, it also displays random pop-ups, which is more generic disruptive behavior. Since it has credential access behavior but also other generic actions, and the category is Generic Malware, the best fit is Generic Malware.",,,1
+2025-12-25T20:54:02.529831,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,cva,mask_encryption,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It attempts to extract saved passwords from the browser, which is a behavior typical of infostealers. However, it also displays random pop-ups, which is not typical of infostealers but more generic disruptive behavior. Given the combination of credential access and other miscellaneous behaviors without a clear ransomware or backdoor focus, the sample fits best under Generic Malware.",,,1
+2025-12-25T20:54:02.529841,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,cva,modify_c2,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and uses a C2 channel disguised as a benign cloud telemetry service. It creates temporary files and attempts to extract saved browser passwords, indicating credential theft capabilities. Additionally, it displays random pop-ups, which is a disruptive behavior but not specifically indicative of ransomware or backdoor functionality. The presence of credential access behavior suggests infostealer characteristics, but the overall behavior includes multiple generic malicious actions without a clear focus on data exfiltration or control. Therefore, the sample fits best under Generic Malware.",,,1
+2025-12-25T20:54:02.529851,gpt-4.1-mini,MAL_010,Generic Malware,Generic Malware,cva,suppress_exfiltration,Generic Malware,"The sample exhibits persistence by installing itself in the startup folder and communicates with a command and control server, indicating remote control capabilities. It also attempts credential access by extracting saved passwords from the browser, which is a behavior typical of infostealers. However, it also displays random pop-ups, which is more generic disruptive behavior. Since it combines multiple behaviors without a clear focus on ransomware or backdoor functionality, and given the category is Generic Malware, the appropriate label is Generic Malware.",,,1

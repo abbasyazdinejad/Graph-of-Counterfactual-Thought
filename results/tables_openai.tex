@@ -1,0 +1,76 @@
+% Auto-generated from results/table_metrics_openai.csv
+
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l r}
+\toprule
+Method & Avg CSS \\
+\midrule
+Direct & \textemdash \\
+CoT & \textemdash \\
+ToT & \textemdash \\
+CVA & 0.9900 \\
+\bottomrule
+\end{tabular}
+\caption{Counterfactual Stability Score (CSS) for methods that generate counterfactual reasoning.}
+\label{tab:css}
+\end{table}
+
+
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l r}
+\toprule
+Method & Avg DSI \\
+\midrule
+Direct & 0.0000 \\
+CoT & 0.0495 \\
+ToT & 0.1668 \\
+CVA & 0.0980 \\
+\bottomrule
+\end{tabular}
+\caption{Decision Shift Index (DSI) across methods (lower is more stable).}
+\label{tab:dsi}
+\end{table}
+
+
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l r}
+\toprule
+Method & Avg ATD \\
+\midrule
+Direct & 0.0000 \\
+CoT & 1.0000 \\
+ToT & 9.0200 \\
+CVA & 4.8000 \\
+\bottomrule
+\end{tabular}
+\caption{Average Token Distance (ATD) as a proxy for reasoning divergence cost.}
+\label{tab:atd}
+\end{table}
+
+
+
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{l r r}
+\toprule
+Method & Orig Acc & CF Acc \\
+\midrule
+Direct & 1.0000 & \textemdash \\
+CoT & 0.8600 & \textemdash \\
+ToT & 0.8200 & \textemdash \\
+CVA & 0.8600 & 0.6867 \\
+\bottomrule
+\end{tabular}
+\caption{Alignment accuracy on original instances and counterfactual instances.}
+\label{tab:alignment-acc}
+\end{table}

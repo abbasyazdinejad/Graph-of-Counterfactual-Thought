@@ -7,8 +7,6 @@ The code accompanies the paper:
 
 > **Counterfactually-Verifiable LLM Agents for Safe and Auditable Cybersecurity Decision-Making**
 
----
-
 ## Overview
 
 Large Language Model (LLM) agents are increasingly deployed in high-stakes domains such as malware analysis.
@@ -19,8 +17,6 @@ under plausible evidence perturbations.
 - Structuring reasoning as a **graph**
 - Explicitly modeling **counterfactual evidence removals**
 - Enabling **verifiable stability, safety, and auditability**
-
----
 
 ## Core Concepts
 
@@ -33,7 +29,6 @@ under plausible evidence perturbations.
 - **CyCB Benchmark**  
   A cybersecurity benchmark designed to evaluate reasoning stability under evidence perturbation.
 
----
 
 ## Code Structure
 
@@ -49,7 +44,6 @@ under plausible evidence perturbations.
 - `scripts/`  
   End-to-end evaluation pipelines for different LLM backends.
 
----
 
 ## Installation
 

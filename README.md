@@ -19,7 +19,7 @@ under plausible evidence perturbations.
 - Enabling **verifiable stability, safety, and auditability**
 
 <p align="center">
-  <img src="f1.png" width="900">
+  <img src="T1.png" width="900">
 </p>
 
 

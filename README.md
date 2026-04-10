@@ -18,6 +18,11 @@ under plausible evidence perturbations.
 - Explicitly modeling **counterfactual evidence removals**
 - Enabling **verifiable stability, safety, and auditability**
 
+<p align="center">
+  <img src="f1.png" width="900">
+</p>
+
+
 ## Core Concepts
 
 - **G-CoT (Graph-of-Counterfactual-Thought)**  

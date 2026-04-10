@@ -45,6 +45,21 @@ under plausible evidence perturbations.
   End-to-end evaluation pipelines for different LLM backends.
 
 
+## Dataset Used in Experiments
+
+The main experiments are conducted on:
+
+`cycb_synth.jsonl`
+
+This dataset contains:
+- 100 samples
+- Structured evidence for malware analysis
+- Ground-truth labels and counterfactual labels
+
+It is designed as a controlled benchmark for evaluating counterfactual reasoning and auditability.
+
+Larger dataset variants (e.g., `cycb_v1`, `cycb_v50`) are provided for scalability experiments and future work.
+
 ## Installation
 
 ```bash
